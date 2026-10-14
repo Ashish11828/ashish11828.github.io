@@ -1,0 +1,689 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ashish Kumar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a scene on the right (wireframe + XYZ gizmo), identity on the left, then a ledger of recognition and a short list of links. */
+:root {
+  --bg: #E9ECEF;
+  --surface: #F5F7F8;
+  --fg: #10151C;
+  --muted: #586270;
+  --line: #C9CFD6;
+  --accent: #0B6F78;
+  --ax-x: #C93A33;
+  --ax-y: #2A8F55;
+  --ax-z: #2F62C9;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1117; --surface: #151B23; --fg: #E8ECF0; --muted: #96A1AE; --line: #2A333E;
+    --accent: #4CC9C0; --ax-x: #FF6B62; --ax-y: #4FD08A; --ax-z: #6C98FF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1117; --surface: #151B23; --fg: #E8ECF0; --muted: #96A1AE; --line: #2A333E;
+  --accent: #4CC9C0; --ax-x: #FF6B62; --ax-y: #4FD08A; --ax-z: #6C98FF;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+}
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 56px;
+}
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Portrait with viewfinder corners */
+.portrait { position: relative; margin: 0; width: 128px; aspect-ratio: 1 / 1; flex: none; max-width: 100%; }
+.portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border: 1px solid var(--line);
+}
+.portrait::before, .portrait::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent);
+}
+.portrait::before { top: -7px; left: -7px; border-right: 0; border-bottom: 0; }
+.portrait::after { bottom: -7px; right: -7px; border-left: 0; border-top: 0; }
+
+/* Section nav */
+.nav { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-bottom: 32px; }
+.nav a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+}
+.nav a:hover { color: var(--accent); }
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 32px;
+  align-items: center;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--line);
+}
+.hero-text { min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 9vw, 5.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0;
+  text-wrap: balance;
+}
+.roles {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 3.2vw, 1.75rem);
+  line-height: 1.25;
+  margin: 0;
+  color: var(--accent);
+}
+.lede { margin: 0; max-width: 46ch; color: var(--muted); font-size: 1.0625rem; }
+.scene { min-width: 0; display: flex; justify-content: center; }
+.scene { flex-direction: column; align-items: center; gap: 4px; }
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+}
+.stage .fallback {
+  position: absolute;
+  left: 19%;
+  top: 13%;
+  width: 62%;
+  height: 74%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border: 1px solid var(--line);
+}
+.stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: pan-y;
+}
+
+/* Sections */
+section { padding-top: 40px; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* Ledger of recognition */
+.ledger { list-style: none; margin: 0; padding: 0; }
+.ledger li {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) auto;
+  gap: 8px 24px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.ledger li:last-child { border-bottom: 1px solid var(--line); }
+.ledger .title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.375rem;
+  letter-spacing: -0.01em;
+  min-width: 0;
+}
+.ledger .note {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  text-align: right;
+}
+
+/* Links */
+.links { list-style: none; margin: 0; padding: 0; }
+.links li { border-top: 1px solid var(--line); }
+.links li:last-child { border-bottom: 1px solid var(--line); }
+.links a {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) auto;
+  gap: 8px 24px;
+  align-items: baseline;
+  padding: 18px 0;
+  text-decoration: none;
+}
+.links .url { font-family: var(--font-mono); font-size: 14px; overflow-wrap: anywhere; min-width: 0; }
+.links .go { font-family: var(--font-mono); color: var(--accent); transition: transform 0.15s ease; }
+.links a:hover .url { text-decoration: underline; text-underline-offset: 4px; }
+.links a:hover .go { transform: translate(2px, -2px); }
+
+.ledger .title a {
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+.ledger .title a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+.ledger .title .desc {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.links.writing .url {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+footer {
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  align-items: center;
+}
+.axes { display: inline-flex; gap: 14px; }
+.axes span { display: inline-flex; align-items: center; gap: 6px; }
+.axes i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .stage { max-width: 340px; }
+  .ledger li, .links a { grid-template-columns: minmax(0, 1fr) auto; }
+  .ledger .label, .links .label { grid-column: 1 / -1; }
+  .ledger .title { grid-column: 1; }
+  .ledger .note { grid-column: 2; }
+  .links .url { grid-column: 1; }
+  .links .go { grid-column: 2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .links .go { transition: none; }
+}
+</style>
+
+<div class="wrap">
+  <nav class="nav" aria-label="Sections">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#recognition">Recognition</a>
+    <a href="#education">Education</a>
+    <a href="#writing">Writing</a>
+    <a href="#links">Links</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Ashish Kumar</h1>
+      <p class="roles">Software and XR Engineer, Research Scientist</p>
+      <p class="lede">Engineering and researching extended reality. Software engineer at Akiya 2.0 Inc, working on Python data engineering, and a Meta XROS fellow. XRCC hackathon finalist and DJX Hackathon mentor, with scholarships from MXR, Unity and Meta, and the NYU Winter School.</p>
+    </div>
+    <div class="scene">
+      <div class="stage" id="stage">
+        <img class="fallback" id="fallback" src="photo.jpg" alt="Portrait of Ashish Kumar" width="640" height="860">
+        <canvas id="gl" hidden role="img" aria-label="Portrait of Ashish Kumar floating in a 3D scene with wireframe solids and an X, Y, Z axis gizmo"></canvas>
+      </div>
+      <span class="label" id="hint" hidden>Move to rotate</span>
+    </div>
+  </header>
+
+  <section id="experience" aria-labelledby="exp">
+    <div class="section-head">
+      <h2 id="exp">Experience</h2>
+    </div>
+    <ul class="ledger">
+      <li>
+        <span class="label">Oct 2025 to now</span>
+        <span class="title">Software Engineer, Akiya 2.0 Inc</span>
+        <span class="note">Python data engineering</span>
+      </li>
+      <li>
+        <span class="label">Fellowship</span>
+        <span class="title"><a href="https://inc42.com/buzz/meta-to-support-100-indian-developers-with-1-mn-fund" target="_blank" rel="noopener noreferrer">Meta XROS Fellowship</a><span class="desc">Part of Meta's $1 million fund, run with FICCI, to back 100 Indian XR developers.</span></span>
+        <span class="note">XR software engineer</span>
+      </li>
+      <li>
+        <span class="label">Feb to Jun 2025</span>
+        <span class="title">Virtual Reality Engineer (Contributor), TranquilMind<span class="desc">Built VR environments and Meta Quest interactions for mental wellness apps. The co-founder's recommendation letter cites his creativity, adaptability and user-centred approach.</span></span>
+        <span class="note">Unreal Engine, C++</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="projects" aria-labelledby="proj">
+    <div class="section-head">
+      <h2 id="proj">Projects</h2>
+    </div>
+    <ul class="ledger">
+      <li>
+        <span class="label">AR</span>
+        <span class="title">Sewing Sealing Machine<span class="desc">An AR training simulation.</span></span>
+      </li>
+      <li>
+        <span class="label">Mixed reality</span>
+        <span class="title">Pet Home Mixed Reality<span class="desc">A virtual pet's home that merges with the user's real living space.</span></span>
+      </li>
+      <li>
+        <span class="label">VR</span>
+        <span class="title">Robo Escape<span class="desc">A VR game of puzzles and obstacles, built around optimized rendering.</span></span>
+      </li>
+      <li>
+        <span class="label">Mixed reality</span>
+        <span class="title">Mixed Reality Table Tennis<span class="desc">A hybrid game played with natural gestures.</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="recognition" aria-labelledby="rec">
+    <div class="section-head">
+      <h2 id="rec">Recognition</h2>
+    </div>
+    <ul class="ledger">
+      <li>
+        <span class="label">Recognition</span>
+        <span class="title">Top 100 Meta Developer</span>
+        <span class="note">100 of 2,800+ applicants</span>
+      </li>
+      <li>
+        <span class="label">Hackathon</span>
+        <span class="title">XRCC Hackathon</span>
+        <span class="note">Finalist</span>
+      </li>
+      <li>
+        <span class="label">Mentor</span>
+        <span class="title">DJX Hackathon</span>
+        <span class="note">Mentor</span>
+      </li>
+      <li>
+        <span class="label">Scholarship</span>
+        <span class="title">MXR Scholarship</span>
+        <span class="note">Published</span>
+      </li>
+      <li>
+        <span class="label">Scholarship</span>
+        <span class="title">XR Bootcamp, Unity and Meta</span>
+        <span class="note">Recipient</span>
+      </li>
+      <li>
+        <span class="label">Scholarship</span>
+        <span class="title">NYU Winter School</span>
+        <span class="note">Fully funded</span>
+      </li>
+      <li>
+        <span class="label">Summer school</span>
+        <span class="title">IMT Lucca Game Design</span>
+        <span class="note">DAAD-funded</span>
+      </li>
+      <li>
+        <span class="label">Competition</span>
+        <span class="title"><a href="https://job.tracks.run/share/programmingtest-26-01/4b04fb7e-294d-4912-8e40-b4e63901581c" target="_blank" rel="noopener noreferrer">Japan National Programming Challenge</a></span>
+        <span class="note">Ranked 1st, 100/100</span>
+      </li>
+      <li>
+        <span class="label">Conference paper</span>
+        <span class="title">AIVR 2026, Kobe, Japan<span class="desc">Full paper accepted for oral presentation with major revisions: Decarbonizing the Metaverse: Sustainable System Design for Multi-Modal XR, AI, and IoT Responsive Environments.</span></span>
+        <span class="note">Accepted</span>
+      </li>
+      <li>
+        <span class="label">Conference paper</span>
+        <span class="title">XR-Metaverse Conference 2026, Estonia<span class="desc">Extended abstract accepted: Augmenting Ideation: A Mixed Reality Framework for Dynamic Mind Mapping and Content Generation.</span></span>
+        <span class="note">Accepted</span>
+      </li>
+      <li>
+        <span class="label">Badge</span>
+        <span class="title">CodeChef Problem Solver, Diamond</span>
+        <span class="note">2,821 solved</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="education" aria-labelledby="edu">
+    <div class="section-head">
+      <h2 id="edu">Education</h2>
+    </div>
+    <ul class="ledger">
+      <li>
+        <span class="label">MSc</span>
+        <span class="title">Digital Humanities</span>
+        <span class="note">IIT Jodhpur</span>
+      </li>
+      <li>
+        <span class="label">BSc</span>
+        <span class="title">Bioinformatics</span>
+        <span class="note">GITAM University</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="writing" aria-labelledby="wr">
+    <div class="section-head">
+      <h2 id="wr">Writing</h2>
+    </div>
+    <ul class="links writing">
+      <li>
+        <a href="https://medium.com/@akumar49139/xr-portfolio-ashish-kumar-db03c92e3bb0" target="_blank" rel="noopener noreferrer">
+          <span class="label">Portfolio</span>
+          <span class="url">XR Portfolio: Ashish Kumar</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://medium.com/@akumar49139/during-the-game-design-summer-school-at-imt-lucca-i-had-an-enriching-experience-that-broadened-my-356c083938d9" target="_blank" rel="noopener noreferrer">
+          <span class="label">Summer school</span>
+          <span class="url">Game Design Summer School at IMT Lucca</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://medium.com/@akumar49139/during-my-time-at-the-fully-funded-nyu-winter-school-in-computing-i-had-the-opportunity-to-immerse-43e826cb11b1" target="_blank" rel="noopener noreferrer">
+          <span class="label">Winter school</span>
+          <span class="url">The Fully Funded NYU Winter School in Computing</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="links" aria-labelledby="find">
+    <div class="section-head">
+      <h2 id="find">Find me</h2>
+    </div>
+    <ul class="links">
+      <li>
+        <a href="https://www.linkedin.com/in/ashish-kumar-76603216b" target="_blank" rel="noopener noreferrer">
+          <span class="label">LinkedIn</span>
+          <span class="url">linkedin.com/in/ashish-kumar-76603216b</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/Ashish11828" target="_blank" rel="noopener noreferrer">
+          <span class="label">GitHub</span>
+          <span class="url">github.com/Ashish11828</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://share.google/NXxM2sSHaWVdn83kw" target="_blank" rel="noopener noreferrer">
+          <span class="label">Google Scholar</span>
+          <span class="url">Publications and citations</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.codechef.com/users/ashish_q121" target="_blank" rel="noopener noreferrer">
+          <span class="label">CodeChef</span>
+          <span class="url">codechef.com/users/ashish_q121</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.deep-ml.com/profile/oaJG47vYJNPTBQ6SBtm8KH2v66a2" target="_blank" rel="noopener noreferrer">
+          <span class="label">Deep-ML</span>
+          <span class="url">Machine learning practice, 11 problems solved</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://medium.com/@akumar49139" target="_blank" rel="noopener noreferrer">
+          <span class="label">Medium</span>
+          <span class="url">medium.com/@akumar49139</span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <footer class="label">
+    <span class="axes" aria-hidden="true">
+      <span><i style="background:var(--ax-x)"></i>X</span>
+      <span><i style="background:var(--ax-y)"></i>Y</span>
+      <span><i style="background:var(--ax-z)"></i>Z</span>
+    </span>
+    <span>Ashish Kumar, XR</span>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var canvas = document.getElementById('gl');
+  var fallback = document.getElementById('fallback');
+  var hint = document.getElementById('hint');
+  if (!stage || !canvas || !window.THREE) return;
+  var THREE = window.THREE;
+
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+  } catch (err) {
+    return;
+  }
+  renderer.setClearColor(0x000000, 0);
+
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(32, 1, 0.1, 60);
+  camera.position.set(0, 0, 11);
+  var rig = new THREE.Group();
+  scene.add(rig);
+
+  function css(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+  var tracked = { accent: [], muted: [] };
+  var axisMats = {};
+  function track(kind, mat) { tracked[kind].push(mat); return mat; }
+
+  /* Portrait card with three frames stacked in depth */
+  var CW = 2.6, CH = 3.3;
+  var cardMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  rig.add(new THREE.Mesh(new THREE.PlaneGeometry(CW, CH), cardMat));
+  function frameAt(scale, z, opacity) {
+    var m = track('accent', new THREE.LineBasicMaterial({ transparent: true, opacity: opacity }));
+    var l = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.PlaneGeometry(CW * scale, CH * scale)), m);
+    l.position.z = z;
+    rig.add(l);
+  }
+  frameAt(1.0, 0.01, 1);
+  frameAt(1.12, -0.35, 0.55);
+  frameAt(1.26, -0.7, 0.3);
+
+  /* Wireframe solids */
+  var ico = new THREE.LineSegments(
+    new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(0.75, 0)),
+    track('accent', new THREE.LineBasicMaterial({ transparent: true, opacity: 0.95 }))
+  );
+  ico.position.set(1.75, -1.55, 0.9);
+  rig.add(ico);
+
+  var oct = new THREE.LineSegments(
+    new THREE.EdgesGeometry(new THREE.OctahedronGeometry(0.45, 0)),
+    track('accent', new THREE.LineBasicMaterial({ transparent: true, opacity: 0.9 }))
+  );
+  oct.position.set(-1.85, 1.6, 0.7);
+  rig.add(oct);
+
+  var ring = new THREE.Mesh(
+    new THREE.TorusGeometry(2.55, 0.01, 6, 140),
+    track('accent', new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.5 }))
+  );
+  ring.rotation.x = 1.15;
+  ring.position.z = -0.2;
+  rig.add(ring);
+
+  /* Particles on a loose shell */
+  var N = 140, pos = new Float32Array(N * 3);
+  for (var i = 0; i < N; i++) {
+    var th = Math.random() * Math.PI * 2;
+    var ph = Math.acos(2 * Math.random() - 1);
+    var rad = 3.1 + Math.random() * 1.5;
+    pos[i * 3] = rad * Math.sin(ph) * Math.cos(th);
+    pos[i * 3 + 1] = rad * Math.sin(ph) * Math.sin(th);
+    pos[i * 3 + 2] = rad * Math.cos(ph) * 0.6;
+  }
+  var pg = new THREE.BufferGeometry();
+  pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  var pts = new THREE.Points(pg, track('muted', new THREE.PointsMaterial({ size: 0.05, transparent: true, opacity: 0.7 })));
+  rig.add(pts);
+
+  /* XYZ gizmo that turns with the scene */
+  var gizmo = new THREE.Group();
+  gizmo.position.set(-2.15, -2.25, 0.4);
+  [['--ax-x', 0.7, 0, 0], ['--ax-y', 0, 0.7, 0], ['--ax-z', 0, 0, 0.7]].forEach(function (a) {
+    var g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(new Float32Array([0, 0, 0, a[1], a[2], a[3]]), 3));
+    var m = new THREE.LineBasicMaterial();
+    axisMats[a[0]] = m;
+    gizmo.add(new THREE.LineSegments(g, m));
+  });
+  rig.add(gizmo);
+
+  function paint() {
+    var a = css('--accent'), m = css('--muted');
+    if (a) tracked.accent.forEach(function (x) { x.color.set(a); });
+    if (m) tracked.muted.forEach(function (x) { x.color.set(m); });
+    Object.keys(axisMats).forEach(function (k) {
+      var c = css(k);
+      if (c) axisMats[k].color.set(c);
+    });
+  }
+
+  function resize() {
+    var r = stage.getBoundingClientRect();
+    var s = Math.max(1, Math.round(r.width));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(s, s, false);
+    camera.aspect = 1;
+    camera.updateProjectionMatrix();
+  }
+
+  var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0, running = false, visible = true;
+  stage.addEventListener('pointermove', function (e) {
+    var r = stage.getBoundingClientRect();
+    tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+    ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
+    if (reduce) { cx = tx; cy = ty; drawOnce(); }
+  });
+  stage.addEventListener('pointerleave', function () {
+    tx = 0; ty = 0;
+    if (reduce) { cx = 0; cy = 0; drawOnce(); }
+  });
+
+  function pose(t) {
+    rig.rotation.y = cx * 0.5 + Math.sin(t * 0.0004) * 0.12;
+    rig.rotation.x = cy * 0.3 + Math.cos(t * 0.0003) * 0.05;
+    ico.rotation.y = t * 0.0006; ico.rotation.x = t * 0.0004;
+    oct.rotation.y = -t * 0.0007; oct.rotation.z = t * 0.0003;
+    ring.rotation.z = t * 0.0002;
+    pts.rotation.y = t * 0.00005;
+  }
+  function drawOnce() {
+    pose(1800);
+    renderer.render(scene, camera);
+  }
+  function loop(t) {
+    cx += (tx - cx) * 0.06;
+    cy += (ty - cy) * 0.06;
+    pose(t);
+    renderer.render(scene, camera);
+    raf = requestAnimationFrame(loop);
+  }
+  function play() {
+    if (reduce || running || !visible || document.hidden) return;
+    running = true;
+    raf = requestAnimationFrame(loop);
+  }
+  function pause() {
+    running = false;
+    cancelAnimationFrame(raf);
+  }
+
+  function ready(tex) {
+    var imgAspect = tex.image.width / tex.image.height;
+    var planeAspect = CW / CH;
+    if (imgAspect < planeAspect) {
+      tex.repeat.y = imgAspect / planeAspect;
+      tex.offset.y = 1 - tex.repeat.y;
+    } else {
+      tex.repeat.x = planeAspect / imgAspect;
+      tex.offset.x = (1 - tex.repeat.x) / 2;
+    }
+    cardMat.map = tex;
+    cardMat.needsUpdate = true;
+    paint();
+    resize();
+    canvas.hidden = false;
+    if (fallback) fallback.hidden = true;
+    if (hint) hint.hidden = false;
+    if (reduce) drawOnce(); else play();
+  }
+
+  new THREE.TextureLoader().load('photo.jpg', ready, undefined, function () {});
+
+  window.addEventListener('resize', function () { resize(); if (reduce) drawOnce(); });
+  document.addEventListener('visibilitychange', function () { if (document.hidden) pause(); else play(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      visible = entries[0].isIntersecting;
+      if (visible) play(); else pause();
+    }).observe(stage);
+  }
+  function repaint() { paint(); if (reduce) drawOnce(); }
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq.addEventListener) mq.addEventListener('change', repaint);
+  }
+  if ('MutationObserver' in window) {
+    new MutationObserver(repaint).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+})();
+</script>
+
+</body></html>
