@@ -197,6 +197,61 @@ h2 {
 .links a:hover .url { text-decoration: underline; text-underline-offset: 4px; }
 .links a:hover .go { transform: translate(2px, -2px); }
 
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+.focus { margin: 0; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.focus canvas {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.focus figcaption {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+@media (max-width: 760px) {
+  .focus-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.ledger .note a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 5px; }
+.ledger .note a:hover { text-decoration-color: var(--accent); }
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.chips span {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.4;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 3px 9px;
+}
+.group {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 28px 0 8px;
+}
+.group:first-of-type { margin-top: 12px; }
 .ledger .title a {
   text-decoration: underline;
   text-decoration-color: var(--line);
@@ -249,8 +304,10 @@ footer {
 
 <div class="wrap">
   <nav class="nav" aria-label="Sections">
+    <a href="#focus">Focus</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
     <a href="#recognition">Recognition</a>
     <a href="#education">Education</a>
     <a href="#writing">Writing</a>
@@ -260,17 +317,41 @@ footer {
   <header class="hero">
     <div class="hero-text">
       <h1>Ashish Kumar</h1>
-      <p class="roles">Software and XR Engineer, Research Scientist</p>
-      <p class="lede">Engineering and researching extended reality. Software engineer at Akiya 2.0 Inc, working on Python data engineering, and a Meta XROS fellow. XRCC hackathon finalist and DJX Hackathon mentor, with scholarships from MXR, Unity and Meta, and the NYU Winter School.</p>
+      <p class="roles">Software Engineer and Independent Researcher</p>
+      <p class="lede">I design and research extended reality, from AR training simulations to VR for mental wellness. I build in Unity and Unreal Engine, and I now work as a software engineer in Python data engineering at Akiya 2.0 Inc. I hold an MSc in Digital Humanities from IIT Jodhpur.</p>
     </div>
     <div class="scene">
       <div class="stage" id="stage">
         <img class="fallback" id="fallback" src="photo.jpg" alt="Portrait of Ashish Kumar" width="640" height="860">
-        <canvas id="gl" hidden role="img" aria-label="Portrait of Ashish Kumar floating in a 3D scene with wireframe solids and an X, Y, Z axis gizmo"></canvas>
+        <canvas id="gl" hidden role="img" aria-label="Portrait of Ashish Kumar floating in a 3D scene with an animated wireframe XR headset, smart glasses and an X, Y, Z axis gizmo"></canvas>
       </div>
       <span class="label" id="hint" hidden>Move to rotate</span>
     </div>
   </header>
+
+  <section id="focus" aria-labelledby="foc">
+    <div class="section-head">
+      <h2 id="foc">Focus areas</h2>
+    </div>
+    <div class="focus-grid">
+      <figure class="focus">
+        <canvas data-kind="glasses" role="img" aria-label="Animated smart glasses with a scanning line in one lens"></canvas>
+        <figcaption><span class="label">XR</span>Smart glasses</figcaption>
+      </figure>
+      <figure class="focus">
+        <canvas data-kind="ai" role="img" aria-label="Animated neural network with signals travelling between nodes"></canvas>
+        <figcaption><span class="label">Models</span>AI</figcaption>
+      </figure>
+      <figure class="focus">
+        <canvas data-kind="ml" role="img" aria-label="Animated line fitting itself to scattered data points"></canvas>
+        <figcaption><span class="label">Learning</span>Machine learning</figcaption>
+      </figure>
+      <figure class="focus">
+        <canvas data-kind="robot" role="img" aria-label="Animated robot arm reaching for a moving target"></canvas>
+        <figcaption><span class="label">Machines</span>Robotics</figcaption>
+      </figure>
+    </div>
+  </section>
 
   <section id="experience" aria-labelledby="exp">
     <div class="section-head">
@@ -283,14 +364,14 @@ footer {
         <span class="note">Python data engineering</span>
       </li>
       <li>
-        <span class="label">Fellowship</span>
-        <span class="title"><a href="https://inc42.com/buzz/meta-to-support-100-indian-developers-with-1-mn-fund" target="_blank" rel="noopener noreferrer">Meta XROS Fellowship</a><span class="desc">Part of Meta's $1 million fund, run with FICCI, to back 100 Indian XR developers.</span></span>
-        <span class="note">XR software engineer</span>
-      </li>
-      <li>
         <span class="label">Feb to Jun 2025</span>
         <span class="title">Virtual Reality Engineer (Contributor), TranquilMind<span class="desc">Built VR environments and Meta Quest interactions for mental wellness apps. The co-founder's recommendation letter cites his creativity, adaptability and user-centred approach.</span></span>
         <span class="note">Unreal Engine, C++</span>
+      </li>
+      <li>
+        <span class="label">Apr to Nov 2023</span>
+        <span class="title"><a href="https://inc42.com/buzz/meta-to-support-100-indian-developers-with-1-mn-fund" target="_blank" rel="noopener noreferrer">Meta XROS Fellowship</a><span class="desc">Part of Meta's $1 million fund, run with FICCI, to back 100 Indian XR developers.</span></span>
+        <span class="note"><span aria-hidden="true">🇮🇳</span> India, XR software engineer</span>
       </li>
     </ul>
   </section>
@@ -299,11 +380,28 @@ footer {
     <div class="section-head">
       <h2 id="proj">Projects</h2>
     </div>
+
+    <h3 class="group">Featured, with code</h3>
     <ul class="ledger">
       <li>
-        <span class="label">AR</span>
-        <span class="title">Sewing Sealing Machine<span class="desc">An AR training simulation.</span></span>
+        <span class="label">HoloLens 2</span>
+        <span class="title"><a href="https://github.com/Ashish11828/xros-nift-project" target="_blank" rel="noopener noreferrer">Smart Sewing Machine Maintenance Guide</a><span class="desc">A hands-free AR guide for learning to maintain a seam-sealing machine, built with Vibhanshu Singh Sindhu as a three-month team project with NIFT-Delhi mentors. It projects the machine in detail and lets users handle its parts with their hands.</span><span class="chips"><span>HoloLens 2</span><span>Unity</span><span>MRTK</span><span>Vuforia</span><span>Blender</span><span>Substance Painter</span><span>Figma</span></span></span>
+        <span class="note"><a href="https://github.com/Ashish11828/xros-nift-project" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
       </li>
+      <li>
+        <span class="label">Snap Spectacles</span>
+        <span class="title"><a href="https://github.com/Ashish11828/xrcc_hack_2026" target="_blank" rel="noopener noreferrer">MedCareSnap (Pulse)</a><span class="desc">AR guidance for cardiac emergencies. It shows hand placement and compression rhythm for CPR, and an AED locator with distance and direction, with voice control to open the map. Built for the XRCC XR hackathon.</span><span class="chips"><span>Snap Spectacles</span><span>Lens Studio</span><span>VoiceML</span><span>AR overlays</span></span></span>
+        <span class="note"><a href="https://github.com/Ashish11828/xrcc_hack_2026" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
+      </li>
+      <li>
+        <span class="label">Spectacles</span>
+        <span class="title"><a href="https://github.com/Ashish11828/khaali-dabba-nahi-lautate" target="_blank" rel="noopener noreferrer">Khaali Dabba Nahi Lautate</a><span class="desc">An everyday Indian magic storytelling game. Explore a miniature neighbourhood, find clues about three neighbours, pick a gift and deliver it to a doorstep. A playable prototype, with on-glasses testing still to do.</span><span class="chips"><span>TypeScript</span><span>Lens Studio</span><span>Spectacles Interaction Kit</span><span>UIKit</span><span>WorldQuery</span></span></span>
+        <span class="note"><a href="https://github.com/Ashish11828/khaali-dabba-nahi-lautate" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
+      </li>
+    </ul>
+
+    <h3 class="group">More XR work</h3>
+    <ul class="ledger">
       <li>
         <span class="label">Mixed reality</span>
         <span class="title">Pet Home Mixed Reality<span class="desc">A virtual pet's home that merges with the user's real living space.</span></span>
@@ -319,64 +417,107 @@ footer {
     </ul>
   </section>
 
+  <section id="skills" aria-labelledby="sk">
+    <div class="section-head">
+      <h2 id="sk">Skills</h2>
+    </div>
+    <ul class="ledger">
+      <li>
+        <span class="label">Devices</span>
+        <span class="title">XR platforms<span class="chips"><span>Meta Quest</span><span>HoloLens 2</span><span>Snap Spectacles</span></span></span>
+      </li>
+      <li>
+        <span class="label">Build</span>
+        <span class="title">Engines and SDKs<span class="chips"><span>Unity</span><span>Unreal Engine</span><span>Lens Studio</span><span>MRTK</span><span>Vuforia</span><span>Spectacles Interaction Kit</span></span></span>
+      </li>
+      <li>
+        <span class="label">Code</span>
+        <span class="title">Languages<span class="chips"><span>Python</span><span>C++</span><span>TypeScript</span></span></span>
+      </li>
+      <li>
+        <span class="label">Craft</span>
+        <span class="title">3D and design<span class="chips"><span>Blender</span><span>Substance Painter</span><span>Figma</span></span></span>
+      </li>
+      <li>
+        <span class="label">Data</span>
+        <span class="title">Data and ML<span class="chips"><span>Data engineering</span><span>Machine learning</span><span>Computer vision</span><span>DBMS</span><span>Data analytics</span></span></span>
+      </li>
+    </ul>
+  </section>
+
   <section id="recognition" aria-labelledby="rec">
     <div class="section-head">
       <h2 id="rec">Recognition</h2>
     </div>
+
+    <h3 class="group">Fellowships and scholarships</h3>
     <ul class="ledger">
       <li>
-        <span class="label">Recognition</span>
+        <span class="label"><span aria-hidden="true">🇮🇳</span> Meta XROS, India</span>
         <span class="title">Top 100 Meta Developer</span>
         <span class="note">100 of 2,800+ applicants</span>
       </li>
       <li>
-        <span class="label">Hackathon</span>
-        <span class="title">XRCC Hackathon</span>
-        <span class="note">Finalist</span>
+        <span class="label"><span aria-hidden="true">🇺🇸</span> Unity and Meta, US</span>
+        <span class="title">XR Bootcamp Scholarship</span>
+        <span class="note">Recipient</span>
       </li>
       <li>
-        <span class="label">Mentor</span>
-        <span class="title">DJX Hackathon</span>
-        <span class="note">Mentor</span>
-      </li>
-      <li>
-        <span class="label">Scholarship</span>
+        <span class="label"><span aria-hidden="true">🇺🇸</span> MXR, US</span>
         <span class="title">MXR Scholarship</span>
         <span class="note">Published</span>
       </li>
       <li>
-        <span class="label">Scholarship</span>
-        <span class="title">XR Bootcamp, Unity and Meta</span>
-        <span class="note">Recipient</span>
-      </li>
-      <li>
-        <span class="label">Scholarship</span>
-        <span class="title">NYU Winter School</span>
+        <span class="label"><span aria-hidden="true">🇦🇪</span> NYU, UAE</span>
+        <span class="title">Digital Humanities Winter School 2024</span>
         <span class="note">Fully funded</span>
       </li>
       <li>
-        <span class="label">Summer school</span>
-        <span class="title">IMT Lucca Game Design</span>
+        <span class="label"><span aria-hidden="true">🇮🇹</span> IMT Lucca, Italy</span>
+        <span class="title">Game Design Summer School</span>
         <span class="note">DAAD-funded</span>
       </li>
+    </ul>
+
+    <h3 class="group">Papers</h3>
+    <ul class="ledger">
       <li>
-        <span class="label">Competition</span>
-        <span class="title"><a href="https://job.tracks.run/share/programmingtest-26-01/4b04fb7e-294d-4912-8e40-b4e63901581c" target="_blank" rel="noopener noreferrer">Japan National Programming Challenge</a></span>
+        <span class="label"><span aria-hidden="true">🇩🇪</span> ESA XR 2026, Cologne, Germany</span>
+        <span class="title">Mixed-Reality Camera Interface for Enhanced Data Collection in Space Analog Missions<span class="desc">A hands-free Meta Quest system for recording, spatial mapping and gesture or gaze-triggered capture, with automatic metadata tagging, for analog habitat research.</span></span>
+        <span class="note">Published, March 2026</span>
+      </li>
+      <li>
+        <span class="label"><span aria-hidden="true">🇯🇵</span> AIVR 2026, Kobe, Japan</span>
+        <span class="title">Decarbonizing the Metaverse<span class="desc">Sustainable System Design for Multi-Modal XR, AI, and IoT Responsive Environments. Full paper accepted for oral presentation with major revisions.</span></span>
+        <span class="note">Accepted</span>
+      </li>
+      <li>
+        <span class="label"><span aria-hidden="true">🇪🇪</span> XRM 2026, Estonia</span>
+        <span class="title">Augmenting Ideation<span class="desc">A Mixed Reality Framework for Dynamic Mind Mapping and Content Generation. Extended abstract.</span></span>
+        <span class="note">Accepted</span>
+      </li>
+    </ul>
+
+    <h3 class="group">Competitions, mentoring and badges</h3>
+    <ul class="ledger">
+      <li>
+        <span class="label"><span aria-hidden="true">🇯🇵</span> Japan</span>
+        <span class="title"><a href="https://job.tracks.run/share/programmingtest-26-01/4b04fb7e-294d-4912-8e40-b4e63901581c" target="_blank" rel="noopener noreferrer">National Programming Challenge</a></span>
         <span class="note">Ranked 1st, 100/100</span>
       </li>
       <li>
-        <span class="label">Conference paper</span>
-        <span class="title">AIVR 2026, Kobe, Japan<span class="desc">Full paper accepted for oral presentation with major revisions: Decarbonizing the Metaverse: Sustainable System Design for Multi-Modal XR, AI, and IoT Responsive Environments.</span></span>
-        <span class="note">Accepted</span>
+        <span class="label"><span aria-hidden="true">🇩🇪</span> XRCC, Germany</span>
+        <span class="title">XRCC Hackathon</span>
+        <span class="note">Finalist</span>
       </li>
       <li>
-        <span class="label">Conference paper</span>
-        <span class="title">XR-Metaverse Conference 2026, Estonia<span class="desc">Extended abstract accepted: Augmenting Ideation: A Mixed Reality Framework for Dynamic Mind Mapping and Content Generation.</span></span>
-        <span class="note">Accepted</span>
+        <span class="label"><span aria-hidden="true">🇮🇳</span> DJX, India</span>
+        <span class="title">DJX Hackathon</span>
+        <span class="note">Mentor</span>
       </li>
       <li>
-        <span class="label">Badge</span>
-        <span class="title">CodeChef Problem Solver, Diamond</span>
+        <span class="label">CodeChef</span>
+        <span class="title">Problem Solver, Diamond badge</span>
         <span class="note">2,821 solved</span>
       </li>
     </ul>
@@ -389,13 +530,13 @@ footer {
     <ul class="ledger">
       <li>
         <span class="label">MSc</span>
-        <span class="title">Digital Humanities</span>
-        <span class="note">IIT Jodhpur</span>
+        <span class="title">Digital Humanities<span class="chips"><span>DSA</span><span>Programming</span><span>Android development</span><span>HCI</span><span>AR and VR content creation</span><span>Machine learning</span></span></span>
+        <span class="note"><span aria-hidden="true">🇮🇳</span> IIT Jodhpur, India</span>
       </li>
       <li>
         <span class="label">BSc</span>
-        <span class="title">Bioinformatics</span>
-        <span class="note">GITAM University</span>
+        <span class="title">Bioinformatics<span class="chips"><span>DBMS</span><span>Data analytics</span><span>Introduction to Unix</span><span>Programming</span><span>Computational biology</span><span>Drug design</span></span></span>
+        <span class="note"><span aria-hidden="true">🇮🇳</span> GITAM University, India</span>
       </li>
     </ul>
   </section>
@@ -444,7 +585,7 @@ footer {
       <li>
         <a href="https://github.com/Ashish11828" target="_blank" rel="noopener noreferrer">
           <span class="label">GitHub</span>
-          <span class="url">github.com/Ashish11828</span>
+          <span class="url">github.com/Ashish11828, 3 project repositories</span>
           <span class="go" aria-hidden="true">↗</span>
         </a>
       </li>
@@ -536,19 +677,61 @@ footer {
   frameAt(1.26, -0.7, 0.3);
 
   /* Wireframe solids */
-  var ico = new THREE.LineSegments(
-    new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(0.75, 0)),
-    track('accent', new THREE.LineBasicMaterial({ transparent: true, opacity: 0.95 }))
-  );
-  ico.position.set(1.75, -1.55, 0.9);
-  rig.add(ico);
+  function lineOf(a, b, mat) {
+    return new THREE.Line(new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(a[0], a[1], a[2]), new THREE.Vector3(b[0], b[1], b[2])
+    ]), mat);
+  }
+  function loopOf(pts, mat) {
+    return new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pts), mat);
+  }
+  function rrect(w, h, r, z) {
+    var out = [], hw = w / 2, hh = h / 2, seg = 8;
+    [[hw - r, hh - r, 0], [-hw + r, hh - r, Math.PI / 2], [-hw + r, -hh + r, Math.PI], [hw - r, -hh + r, Math.PI * 1.5]].forEach(function (c) {
+      for (var i = 0; i <= seg; i++) {
+        var ang = c[2] + (Math.PI / 2) * (i / seg);
+        out.push(new THREE.Vector3(c[0] + Math.cos(ang) * r, c[1] + Math.sin(ang) * r, z));
+      }
+    });
+    return out;
+  }
 
-  var oct = new THREE.LineSegments(
-    new THREE.EdgesGeometry(new THREE.OctahedronGeometry(0.45, 0)),
-    track('accent', new THREE.LineBasicMaterial({ transparent: true, opacity: 0.9 }))
-  );
-  oct.position.set(-1.85, 1.6, 0.7);
-  rig.add(oct);
+  /* Smart glasses: two lenses, bridge, temples and a scanning line in the right lens */
+  var glasses = new THREE.Group();
+  var gm = track('accent', new THREE.LineBasicMaterial({ transparent: true, opacity: 0.95 }));
+  [-0.42, 0.42].forEach(function (x) {
+    var lens = loopOf(rrect(0.68, 0.44, 0.13, 0), gm);
+    lens.position.x = x;
+    glasses.add(lens);
+  });
+  glasses.add(lineOf([-0.08, 0.1, 0], [0.08, 0.1, 0], gm));
+  [-1, 1].forEach(function (sd) {
+    glasses.add(lineOf([sd * 0.76, 0.12, 0], [sd * 0.8, 0.12, -0.95], gm));
+  });
+  var scan = lineOf([-0.25, 0, 0], [0.25, 0, 0], track('accent', new THREE.LineBasicMaterial({ transparent: true, opacity: 0.8 })));
+  scan.position.x = 0.42;
+  glasses.add(scan);
+  glasses.position.set(1.75, -1.55, 0.9);
+  rig.add(glasses);
+
+  /* XR headset: visor frustum with a head strap */
+  var headset = new THREE.Group();
+  var hm = track('accent', new THREE.LineBasicMaterial({ transparent: true, opacity: 0.95 }));
+  var front = rrect(1.3, 0.7, 0.2, 0), back = rrect(1.08, 0.58, 0.16, -0.55);
+  headset.add(loopOf(front, hm));
+  headset.add(loopOf(back, hm));
+  [0, 8, 9, 17, 18, 26, 27, 35].forEach(function (k) {
+    headset.add(lineOf([front[k].x, front[k].y, front[k].z], [back[k].x, back[k].y, back[k].z], hm));
+  });
+  var strap = [];
+  for (var q = 0; q < 40; q++) {
+    var sa = (q / 40) * Math.PI * 2;
+    strap.push(new THREE.Vector3(Math.cos(sa) * 0.62, 0, -0.85 + Math.sin(sa) * 0.55));
+  }
+  headset.add(loopOf(strap, hm));
+  headset.position.set(-1.85, 1.6, 0.7);
+  headset.scale.setScalar(0.8);
+  rig.add(headset);
 
   var ring = new THREE.Mesh(
     new THREE.TorusGeometry(2.55, 0.01, 6, 140),
@@ -619,8 +802,13 @@ footer {
   function pose(t) {
     rig.rotation.y = cx * 0.5 + Math.sin(t * 0.0004) * 0.12;
     rig.rotation.x = cy * 0.3 + Math.cos(t * 0.0003) * 0.05;
-    ico.rotation.y = t * 0.0006; ico.rotation.x = t * 0.0004;
-    oct.rotation.y = -t * 0.0007; oct.rotation.z = t * 0.0003;
+    glasses.rotation.y = 0.3 + Math.sin(t * 0.0008) * 0.7;
+    glasses.rotation.x = 0.15;
+    glasses.position.y = -1.55 + Math.sin(t * 0.0011) * 0.08;
+    scan.position.y = Math.sin(t * 0.003) * 0.14;
+    headset.rotation.y = -0.4 + Math.sin(t * 0.0007 + 1) * 0.7;
+    headset.rotation.x = -0.1;
+    headset.position.y = 1.6 + Math.sin(t * 0.0009 + 2) * 0.08;
     ring.rotation.z = t * 0.0002;
     pts.rotation.y = t * 0.00005;
   }
@@ -683,6 +871,144 @@ footer {
   if ('MutationObserver' in window) {
     new MutationObserver(repaint).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   }
+})();
+</script>
+<script>
+(function () {
+  var cvs = Array.prototype.slice.call(document.querySelectorAll('canvas[data-kind]'));
+  if (!cvs.length) return;
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: no-preference), (prefers-reduced-motion: reduce)') && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var root = document.documentElement;
+  function css(n) { return getComputedStyle(root).getPropertyValue(n).trim() || '#888'; }
+  function rr(c, x, y, w, h, r) {
+    c.beginPath();
+    c.moveTo(x + r, y);
+    c.arcTo(x + w, y, x + w, y + h, r);
+    c.arcTo(x + w, y + h, x, y + h, r);
+    c.arcTo(x, y + h, x, y, r);
+    c.arcTo(x, y, x + w, y, r);
+    c.closePath();
+  }
+  function line(c, x1, y1, x2, y2) { c.beginPath(); c.moveTo(x1, y1); c.lineTo(x2, y2); c.stroke(); }
+  function dot(c, x, y, r) { c.beginPath(); c.arc(x, y, r, 0, Math.PI * 2); c.fill(); }
+
+  var net = [[4, 18], [5, 16], [3, 20]].map(function (l, i) {
+    var arr = [];
+    for (var j = 0; j < l[0]; j++) arr.push([18 + i * 32, 50 + (j - (l[0] - 1) / 2) * l[1]]);
+    return arr;
+  });
+  var scatter = [];
+  for (var i = 0; i < 16; i++) {
+    var px = 12 + i * 4.9;
+    scatter.push([px, 78 - (px - 10) * 0.62 + Math.sin(i * 12.9898) * 9]);
+  }
+
+  function glasses(c, t, k) {
+    c.strokeStyle = k.a; c.fillStyle = k.a; c.lineWidth = 2; c.lineCap = 'round';
+    rr(c, 6, 36, 38, 28, 10); c.stroke();
+    rr(c, 56, 36, 38, 28, 10); c.stroke();
+    c.beginPath(); c.moveTo(44, 44); c.quadraticCurveTo(50, 39, 56, 44); c.stroke();
+    line(c, 6, 42, 1, 40); line(c, 94, 42, 99, 40);
+    c.globalAlpha = 0.85;
+    var y = 50 + Math.sin(t * 0.003) * 8;
+    c.lineWidth = 1.4; line(c, 62, y, 88, y);
+    c.globalAlpha = 0.6; line(c, 62, 40, 66, 40); line(c, 84, 60, 88, 60);
+    c.globalAlpha = 0.9;
+    c.beginPath(); c.arc(25, 50, 3 + 2 * Math.abs(Math.sin(t * 0.002)), 0, Math.PI * 2); c.stroke();
+    dot(c, 25, 50, 1);
+    c.globalAlpha = 1;
+  }
+  function ai(c, t, k) {
+    c.lineCap = 'round';
+    c.strokeStyle = k.m; c.lineWidth = 0.7; c.globalAlpha = 0.55;
+    var segs = [], a, b;
+    for (a = 0; a < net.length - 1; a++) {
+      net[a].forEach(function (p) { net[a + 1].forEach(function (q) { segs.push([p, q]); line(c, p[0], p[1], q[0], q[1]); }); });
+    }
+    c.globalAlpha = 1; c.fillStyle = k.a;
+    segs.forEach(function (sg, n) {
+      if (n % 2) return;
+      var u = (t * 0.0006 + n * 0.137) % 1;
+      dot(c, sg[0][0] + (sg[1][0] - sg[0][0]) * u, sg[0][1] + (sg[1][1] - sg[0][1]) * u, 1);
+    });
+    net.forEach(function (layer, li) {
+      layer.forEach(function (p) {
+        c.fillStyle = k.s; c.strokeStyle = k.a; c.lineWidth = 1.4;
+        c.beginPath(); c.arc(p[0], p[1], 3.2 + 1.2 * Math.sin(t * 0.004 - li * 1.2), 0, Math.PI * 2); c.fill(); c.stroke();
+      });
+    });
+  }
+  function ml(c, t, k) {
+    c.lineCap = 'round';
+    var p = (t % 5000) / 5000;
+    var e = 1 - Math.pow(1 - Math.min(p / 0.8, 1), 3);
+    var y0 = 40 + 38 * e, slope = -0.1 - 0.52 * e;
+    var fade = p < 0.06 ? p / 0.06 : (p > 0.92 ? (1 - p) / 0.08 : 1);
+    var ly = function (x) { return y0 + slope * (x - 10); };
+    c.strokeStyle = k.l; c.lineWidth = 0.8; c.globalAlpha = 1;
+    line(c, 8, 92, 94, 92); line(c, 8, 92, 8, 8);
+    c.globalAlpha = (0.15 + 0.45 * (1 - e)) * fade; c.strokeStyle = k.m; c.lineWidth = 0.8;
+    scatter.forEach(function (q) { line(c, q[0], q[1], q[0], ly(q[0])); });
+    c.globalAlpha = 1; c.fillStyle = k.a;
+    scatter.forEach(function (q) { dot(c, q[0], q[1], 1.9); });
+    c.globalAlpha = fade; c.strokeStyle = k.a; c.lineWidth = 2;
+    line(c, 6, ly(6), 94, ly(94));
+    c.globalAlpha = 1;
+  }
+  function robot(c, t, k) {
+    var bx = 28, by = 84, l1 = 34, l2 = 30, a = t * 0.0013;
+    var tx = 64 + 14 * Math.cos(a), ty = 42 + 12 * Math.sin(a * 1.3);
+    var dx = tx - bx, dy = ty - by, d = Math.min(Math.hypot(dx, dy), l1 + l2 - 0.01), ang = Math.atan2(dy, dx);
+    var cs = Math.max(-1, Math.min(1, (l1 * l1 + d * d - l2 * l2) / (2 * l1 * d)));
+    var a1 = ang - Math.acos(cs);
+    var ex = bx + l1 * Math.cos(a1), ey = by + l1 * Math.sin(a1);
+    var fx = bx + d * Math.cos(ang), fy = by + d * Math.sin(ang);
+    c.lineCap = 'round'; c.lineJoin = 'round';
+    c.strokeStyle = k.l; c.lineWidth = 0.8; line(c, 4, 91, 96, 91);
+    c.strokeStyle = k.m; c.globalAlpha = 0.8; c.lineWidth = 1;
+    line(c, tx - 3, ty, tx + 3, ty); line(c, tx, ty - 3, tx, ty + 3);
+    c.globalAlpha = 1;
+    c.strokeStyle = k.a; c.lineWidth = 1.6; rr(c, 16, 84, 24, 7, 2); c.stroke();
+    c.lineWidth = 4;
+    c.beginPath(); c.moveTo(bx, by); c.lineTo(ex, ey); c.lineTo(fx, fy); c.stroke();
+    var ga = Math.atan2(fy - ey, fx - ex), open = 3 + 1.5 * Math.sin(t * 0.004);
+    c.lineWidth = 1.8;
+    [-1, 1].forEach(function (sd) {
+      var ox = Math.cos(ga + Math.PI / 2) * open * sd, oy = Math.sin(ga + Math.PI / 2) * open * sd;
+      line(c, fx + ox, fy + oy, fx + ox + Math.cos(ga) * 6, fy + oy + Math.sin(ga) * 6);
+    });
+    c.fillStyle = k.s; c.lineWidth = 1.6;
+    [[bx, by], [ex, ey]].forEach(function (j) { c.beginPath(); c.arc(j[0], j[1], 3, 0, Math.PI * 2); c.fill(); c.stroke(); });
+  }
+  var draw = { glasses: glasses, ai: ai, ml: ml, robot: robot };
+
+  function frame(t) {
+    var k = { a: css('--accent'), m: css('--muted'), l: css('--line'), s: css('--surface') };
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cvs.forEach(function (cv) {
+      var w = cv.getBoundingClientRect().width;
+      if (!w) return;
+      var px = Math.round(w * dpr);
+      if (cv.width !== px) { cv.width = px; cv.height = px; }
+      var c = cv.getContext('2d');
+      c.setTransform(cv.width / 100, 0, 0, cv.width / 100, 0, 0);
+      c.clearRect(0, 0, 100, 100);
+      c.globalAlpha = 1;
+      draw[cv.getAttribute('data-kind')](c, t, k);
+    });
+  }
+  var raf = 0;
+  function loop(t) { frame(t); raf = requestAnimationFrame(loop); }
+  function start() {
+    cancelAnimationFrame(raf);
+    if (reduce) { frame(2400); return; }
+    raf = requestAnimationFrame(loop);
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) cancelAnimationFrame(raf); else start();
+  });
+  window.addEventListener('resize', function () { if (reduce) frame(2400); });
+  start();
 })();
 </script>
 
