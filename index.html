@@ -1,6 +1,10 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ashish Kumar, software engineer and independent researcher. XR, AI, machine learning and quantum computing portfolio.">
 <title>Ashish Kumar</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: a scene on the right (wireframe + XYZ gizmo), identity on the left, then a ledger of recognition and a short list of links. */
@@ -56,6 +60,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   text-transform: uppercase;
   color: var(--muted);
 }
+
+.flag { display: inline-block; width: 22px; height: 14px; vertical-align: -2px; border: 1px solid var(--line); }
 
 /* Portrait with viewfinder corners */
 .portrait { position: relative; margin: 0; width: 128px; aspect-ratio: 1 / 1; flex: none; max-width: 100%; }
@@ -300,8 +306,212 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .links .go { transition: none; }
 }
-</style>
 
+/* Portfolio refinement */
+html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+body { margin: 0; background-image: radial-gradient(ellipse at 85% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 45%); }
+.wrap { max-width: 1160px; padding-inline: max(24px, env(safe-area-inset-left)); padding-block: 28px 48px; }
+.nav { gap: 8px; padding: 10px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); margin-bottom: 58px; }
+.nav a { padding: 8px 12px; border-radius: 8px; font-size: 10px; letter-spacing: .1em; transition: background .2s, color .2s; }
+.nav a:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.hero { gap: 40px; padding-bottom: 58px; }
+.hero-text { gap: 22px; }
+.eyebrow { margin: 0; color: var(--accent); font: 11px var(--font-mono); text-transform: uppercase; letter-spacing: .16em; display:flex; gap:10px; align-items:center; }
+.eyebrow::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 12%,transparent); }
+h1 { font-size: clamp(3.5rem, 8vw, 6rem); letter-spacing: -.055em; }
+.roles { font-size: clamp(1.2rem, 2.4vw, 1.6rem); max-width: 28ch; }
+.lede { font-size: 16px; line-height: 1.8; max-width: 58ch; }
+.education-summary { margin: 0; padding-left: 16px; border-left: 2px solid var(--accent); color: var(--muted); font-size: 13px; line-height: 1.8; }
+.hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top: 2px; }
+.hero-actions a { padding: 11px 17px; border:1px solid var(--line); border-radius: 10px; text-decoration:none; font-size:13px; font-weight:600; }
+.hero-actions a:first-child { background:var(--accent); color:var(--bg); border-color:var(--accent); }
+.hero-actions a:hover { transform:translateY(-2px); }
+.stage { max-width:440px; border-radius:50%; background: radial-gradient(circle, color-mix(in srgb,var(--accent) 9%,transparent),transparent 68%); }
+section { padding-top: 56px; }
+.section-head { margin-bottom: 22px; }
+h2 { font-size: 1.7rem; letter-spacing:-.035em; }
+.focus-grid { gap:14px; }
+.focus { padding:16px; border:1px solid var(--line); border-radius:16px; background:var(--surface); transition:transform .2s,border-color .2s; }
+.focus:hover { transform:translateY(-4px); border-color:var(--accent); }
+.focus canvas { border:0; background:transparent; max-height:170px; }
+.focus figcaption { font-size:17px; }
+.focus figcaption .label { font-size:9px; }
+#experience .ledger { display:grid; gap:14px; }
+#experience .ledger li { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px; grid-template-columns:125px minmax(0,1fr) 190px; gap:14px 22px; }
+.ledger .title { font-size:20px; line-height:1.4; }
+.ledger .title a { text-decoration:none; }
+.ledger .title a:hover { color:var(--accent); }
+.ledger .title .desc { margin-top:10px; font-size:14px; line-height:1.75; }
+.ledger .label { font-size:10px; letter-spacing:.08em; }
+.ledger .note { font-size:11px; line-height:1.8; }
+.flag { border-radius:2px; width:20px; height:13px; }
+.chips span { border-radius:6px; background:var(--surface); font-size:10px; }
+.group { margin-top:32px; margin-bottom:14px; }
+.links a { padding:20px 0; }
+footer { border-top:1px solid var(--line); padding-top:24px; justify-content:space-between; }
+@media(max-width:900px) { #experience .ledger li { grid-template-columns:110px minmax(0,1fr); } #experience .note {grid-column:2;text-align:left;} }
+@media(max-width:760px) { .wrap {padding-inline:20px;} .nav {margin-bottom:36px; gap:2px;} .nav a {padding:7px 8px;font-size:9px;} .hero {gap:18px;} .hero-text {gap:18px;} .stage {max-width:300px;} section {padding-top:40px;} #experience .ledger li {grid-template-columns:minmax(0,1fr);padding:20px;} #experience .ledger .label,#experience .ledger .title,#experience .ledger .note {grid-column:1;text-align:left;} .focus {padding:12px;} .focus canvas {max-height:130px;} .ledger .title {font-size:18px;} }
+@media(prefers-reduced-motion:reduce) { html {scroll-behavior:auto;} .focus,.hero-actions a {transition:none;transform:none;} }
+
+
+/* Anime-inspired midnight palette */
+:root, :root[data-theme="light"], :root[data-theme="dark"] {
+ --bg:#100e23; --surface:#1b1733; --fg:#f5efff; --muted:#bab0d1; --line:#393052;
+ --accent:#ff99ca; --ax-x:#ff8abd; --ax-y:#73e2d5; --ax-z:#a995ff; color-scheme:dark;
+}
+@media(prefers-color-scheme:dark) { :root:not([data-theme="light"]) {--bg:#100e23;--surface:#1b1733;--fg:#f5efff;--muted:#bab0d1;--line:#393052;--accent:#ff99ca;--ax-x:#ff8abd;--ax-y:#73e2d5;--ax-z:#a995ff;} }
+body { background-image:radial-gradient(ellipse at 88% 4%,#59408655,transparent 38%),radial-gradient(ellipse at 0% 40%,#254c5b33,transparent 40%),radial-gradient(circle,#eacaff26 1px,transparent 1px); background-size:auto,auto,38px 38px; }
+.nav { border-radius:6px; border-color:#6b527f; box-shadow:4px 4px 0 #080714; background:#19152bee; }
+.nav a { border-radius:3px; }
+.nav a:hover {background:#ff99ca20;color:#ffb7da;}
+.eyebrow {color:#81e9df;font-weight:500;}
+.eyebrow::before {background:#81e9df;box-shadow:0 0 12px #81e9df88;}
+h1 {color:#fff4fc;text-shadow:3px 3px 0 #a1568e,6px 6px 0 #292044;}
+.roles {color:#ffadd4;}
+.hero {position:relative;border-bottom-color:#6b527f;}
+.scene {position:relative;}
+.scene::before {content:'✦';position:absolute;top:4%;right:12%;font-size:42px;color:#ffe1a3;transform:rotate(12deg);text-shadow:0 0 25px #ffe1a344;}
+.scene::after {content:'✧';position:absolute;bottom:12%;left:8%;font-size:32px;color:#81e9df;}
+.stage {background:radial-gradient(circle,#b782d622,transparent 67%);}
+.hero-actions a {border-radius:4px;border:1px solid #a678a5;box-shadow:4px 4px 0 #080714;transition:transform .2s,box-shadow .2s;}
+.hero-actions a:first-child {background:#ffadd4;color:#211126;border-color:#ffadd4;}
+.hero-actions a:hover {transform:translate(-2px,-2px);box-shadow:6px 6px 0 #080714;}
+.education-summary {border-left-color:#81e9df;}
+.section-head {gap:18px;}
+.section-head::after {content:'';height:1px;flex:1;background:linear-gradient(90deg,#94618d,transparent);}
+h2 {display:flex;align-items:center;gap:12px;white-space:nowrap;}
+h2::before {content:'✦';color:#ff99ca;font-size:19px;}
+.focus {border-radius:6px;border:1px solid #6b527f;box-shadow:5px 5px 0 #080714;background:linear-gradient(145deg,#251e3e,#19152d);}
+.focus:nth-child(even) {border-color:#447371;}
+.focus figcaption {color:#fbeaff;}
+.focus figcaption .label {color:#81e9df;}
+#experience .ledger li {border-radius:6px;border:1px solid #5e496d;box-shadow:5px 5px 0 #080714;background:linear-gradient(115deg,#241c38,#19162c);position:relative;}
+#experience .ledger li::before {content:'';position:absolute;left:-1px;top:22px;bottom:22px;width:3px;background:#ff99ca;}
+#experience .ledger li:nth-child(even)::before {background:#81e9df;}
+.ledger .note {color:#81e9df;}
+.ledger .title a:hover {color:#ffb7da;}
+.chips span {border-radius:3px;border-color:#60466c;background:#2d203e;color:#dcc5e7;}
+.group {color:#ffadd4;letter-spacing:.15em;}
+.links .go {color:#81e9df;}
+footer {border-color:#6b527f;}
+@media(max-width:760px) {h1 {text-shadow:2px 2px 0 #a1568e,4px 4px 0 #292044;} .scene::before{font-size:30px;} }
+
+
+.anime-world {position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.42;}
+.wrap {position:relative;z-index:1;}
+.anime-world svg {position:absolute;overflow:visible;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.bg-robot {width:180px;left:max(-60px,calc(50% - 760px));top:43%;stroke:#86e9e4;stroke-width:2;animation:robot-float 7s ease-in-out infinite;}
+.robot-arm {transform-origin:117px 80px;animation:robot-wave 3.5s ease-in-out infinite;}
+.robot-eye {fill:#a2fff4;stroke:none;filter:drop-shadow(0 0 5px #81e9df);}
+.bg-xr {width:220px;right:max(-80px,calc(50% - 790px));top:14%;stroke:#ffacd8;stroke-width:1.6;animation:xr-drift 11s ease-in-out infinite;}
+.xr-scan {stroke:#98fff0;animation:scan-move 4s ease-in-out infinite;}
+.bg-quantum {width:240px;right:max(-100px,calc(50% - 780px));bottom:5%;stroke:#b7a2ff;stroke-width:1;animation:quantum-turn 32s linear infinite;}
+.quantum-electron {fill:#ffdba5;stroke:none;filter:drop-shadow(0 0 6px #ffbf7c);}
+.quantum-core {fill:#ffacd8;stroke:none;filter:drop-shadow(0 0 8px #ff99ca);}
+@keyframes robot-float {0%,100% {transform:translateY(0) rotate(-5deg);}50% {transform:translateY(-28px) rotate(4deg);}}
+@keyframes robot-wave {0%,100% {transform:rotate(-12deg);}50% {transform:rotate(-45deg);}}
+@keyframes xr-drift {0%,100% {transform:translateY(0) rotate(-12deg);}50% {transform:translateY(35px) rotate(8deg);}}
+@keyframes scan-move {0%,100% {transform:translateY(-9px);opacity:.3;}50% {transform:translateY(9px);opacity:1;}}
+@keyframes quantum-turn {to {transform:rotate(360deg);}}
+@media(max-width:1350px) {.anime-world {opacity:.13;} .bg-robot {left:-65px;} .bg-xr {right:-100px;} .bg-quantum {right:-100px;}}
+@media(max-width:600px) {.anime-world {opacity:.1;} .bg-robot {width:140px;left:-75px;} .bg-xr {width:160px;right:-90px;} .bg-quantum {width:180px;right:-100px;}}
+@media(prefers-reduced-motion:reduce) {.anime-world svg,.anime-world g,.xr-scan {animation:none!important;} .quantum-electron animateMotion {display:none;}}
+
+
+.bg-smart {width:190px;left:max(-55px,calc(50% - 760px));top:12%;stroke:#ffb7dc;stroke-width:2;animation:xr-drift 9s ease-in-out infinite reverse;}
+.bg-ai {width:155px;right:max(-55px,calc(50% - 740px));top:48%;stroke:#94f2e6;stroke-width:2;animation:robot-float 8s ease-in-out infinite reverse;}
+.bg-ml {width:180px;left:max(-65px,calc(50% - 755px));bottom:3%;stroke:#c4b1ff;stroke-width:1.5;animation:robot-float 10s ease-in-out infinite;}
+.cartoon-fill {fill:#201832;}
+.cartoon-cheek {fill:#ff9dca;stroke:none;opacity:.8;}
+.ml-signal {fill:#ffe6ad;stroke:none;animation:signal-pulse 2.5s ease-in-out infinite;}
+.ml-signal:nth-child(even) {animation-delay:1.2s;}
+@keyframes signal-pulse {0%,100%{opacity:.3;}50%{opacity:1;filter:drop-shadow(0 0 5px #ffe6ad);}}
+@media(max-width:1350px) {.bg-smart {left:-70px;} .bg-ai {right:-65px;} .bg-ml {left:-80px;}}
+@media(max-width:600px) {.bg-smart {width:145px;left:-80px;} .bg-ai {width:120px;right:-70px;} .bg-ml {width:140px;left:-90px;}}
+@media(prefers-reduced-motion:reduce) {.ml-signal {animation:none!important;}}
+
+
+/* Refined midnight, lavender and aqua palette */
+:root,:root[data-theme="light"],:root[data-theme="dark"] {--bg:#0c1220;--surface:#141e30;--fg:#edf2fc;--muted:#aab8ce;--line:#2b3a52;--accent:#b8a5ff;--ax-x:#e9a3c1;--ax-y:#7bdcd2;--ax-z:#a5b5ff;color-scheme:dark;}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1220;--surface:#141e30;--fg:#edf2fc;--muted:#aab8ce;--line:#2b3a52;--accent:#b8a5ff;--ax-x:#e9a3c1;--ax-y:#7bdcd2;--ax-z:#a5b5ff;}}
+body {background-color:var(--bg);background-image:radial-gradient(ellipse at 90% 0%,#6656a92b,transparent 42%),radial-gradient(ellipse at 0% 45%,#287c8520,transparent 42%),radial-gradient(circle,#a5b5ff15 1px,transparent 1px);}
+.nav {background:#111b2bea;border-color:#33435f;box-shadow:4px 4px 0 #070b14;}
+.nav a:hover {background:#b8a5ff15;color:#d3c7ff;}
+.eyebrow {color:#8cddd6;}.eyebrow::before{background:#8cddd6;box-shadow:0 0 12px #8cddd644;}
+h1 {color:#f0f3ff;text-shadow:2px 2px 0 #69618f,4px 4px 0 #1d2940;}
+.roles {color:#c7b8ff;}
+.hero {border-bottom-color:#33435f;}
+.hero-actions a {border-color:#465676;box-shadow:4px 4px 0 #070b14;}
+.hero-actions a:first-child {background:#b8a5ff;color:#12182a;border-color:#b8a5ff;}
+.hero-actions a:hover {box-shadow:6px 6px 0 #070b14;}
+.education-summary {border-left-color:#7bdcd2;}
+.section-head::after {background:linear-gradient(90deg,#4a557b,transparent);}
+h2::before {color:#b8a5ff;}
+.focus {background:linear-gradient(145deg,#19243a,#121c2d);border-color:#344461;box-shadow:5px 5px 0 #070b14;}
+.focus:nth-child(even){border-color:#34555d;}
+.focus figcaption {color:#edf2fc;}.focus figcaption .label{color:#8cddd6;}
+#experience .ledger li {background:linear-gradient(115deg,#182238,#121c2d);border-color:#344461;box-shadow:5px 5px 0 #070b14;}
+#experience .ledger li::before{background:#b8a5ff;}#experience .ledger li:nth-child(even)::before{background:#7bdcd2;}
+.ledger .note,.links .go{color:#8cddd6;}.ledger .title a:hover{color:#cbbdff;}
+.chips span{background:#1d2940;border-color:#354660;color:#c3cee4;}
+.group{color:#c7b8ff;}footer{border-color:#33435f;}
+.stage{background:radial-gradient(circle,#8a7acb18,transparent 67%);}
+.cartoon-fill{fill:#141e30;}.cartoon-cheek{fill:#e9a3c1;}.bg-smart,.bg-xr{stroke:#b8a5ff;}.bg-ai,.bg-robot{stroke:#7bdcd2;}.bg-ml,.bg-quantum{stroke:#a5b5ff;}
+@media(max-width:760px){h1{text-shadow:2px 2px 0 #69618f,3px 3px 0 #1d2940;}}
+
+</style>
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+
+<div class="anime-world" aria-hidden="true">
+ <svg class="bg-smart" viewBox="0 0 200 120">
+  <path d="m18 49-9-23 28 7m145 16 9-23-28 7M78 57q22-15 44 0"/>
+  <rect class="cartoon-fill" x="17" y="40" width="64" height="47" rx="18"/><rect class="cartoon-fill" x="119" y="40" width="64" height="47" rx="18"/>
+  <path d="m29 48 11-2m88 2 11-2M38 59l4-4 4 4m99 0 4-4 4 4M83 87q17 17 34 0"/>
+  <ellipse class="cartoon-cheek" cx="30" cy="72" rx="6" ry="3"/><ellipse class="cartoon-cheek" cx="170" cy="72" rx="6" ry="3"/>
+  <path class="xr-scan" d="M128 72h44"/><path d="m94 20 4-9 4 9 9 4-9 4-4 9-4-9-9-4z" stroke="#ffe6ad"/>
+ </svg>
+ <svg class="bg-ai" viewBox="0 0 160 170">
+  <path class="cartoon-fill" d="M80 20q-20-20-35 1-28-5-26 25-24 18-7 39-6 24 19 30 2 24 27 19 10 18 22 7 16 13 28-7 26 3 29-22 25-10 13-33 15-24-8-39-3-28-30-21Q95 3 80 20z"/>
+  <path d="M80 24v28m-35-24 4 19-15 10m81-29-4 19 15 10M25 87l20-6m90 6-20-6M53 114l-8 14m62-14 8 14" opacity=".6"/>
+  <path d="M51 72q6-10 12 0m34 0q6-10 12 0M67 91q13 16 26 0"/>
+  <ellipse class="cartoon-cheek" cx="45" cy="86" rx="8" ry="4"/><ellipse class="cartoon-cheek" cx="115" cy="86" rx="8" ry="4"/>
+  <path d="m57 141-5 16m55-16 5 16m-64 2h13m47 0h13"/>
+  <text x="80" y="119" text-anchor="middle" fill="#94f2e6" stroke="none" font-family="monospace" font-size="13">AI</text>
+ </svg>
+ <svg class="bg-ml" viewBox="0 0 190 180">
+  <path class="cartoon-fill" d="M22 39h146v112H22z"/><path d="m22 39 10-12h146l-10 12m0 0 10-12v112l-10 12M65 152l-7 17m67-17 7 17M6 73l16 8m146 0 16-8"/>
+  <path d="M48 63 95 55l47 15M48 63l47 41 47-34M48 101l47-46m-47 46 47 3 47 7m-47-56 47 56M48 63l94 48" opacity=".5"/>
+  <g class="ml-signal"><circle cx="48" cy="63" r="5"/><circle cx="95" cy="104" r="5"/><circle cx="142" cy="70" r="5"/></g>
+  <g class="ml-signal"><circle cx="48" cy="101" r="5"/><circle cx="95" cy="55" r="5"/><circle cx="142" cy="111" r="5"/></g>
+  <path d="M68 127v4m54-4v4m-32-2q5 7 10 0"/><ellipse class="cartoon-cheek" cx="54" cy="132" rx="6" ry="3"/><ellipse class="cartoon-cheek" cx="136" cy="132" rx="6" ry="3"/>
+  <text x="95" y="20" text-anchor="middle" fill="#c4b1ff" stroke="none" font-family="monospace" font-size="12">ML</text>
+ </svg>
+ <svg class="bg-robot" viewBox="0 0 160 210">
+  <path d="M80 29V16m-4-3a4 4 0 1 0 8 0a4 4 0 1 0-8 0"/>
+  <rect x="39" y="30" width="82" height="58" rx="18" fill="#1b1733"/><rect x="49" y="44" width="62" height="25" rx="10"/>
+  <path class="robot-eye" d="M60 51h7v10h-7zm33 0h7v10h-7z"/><path d="M73 77q7 5 14 0M31 48v20m98-20v20"/>
+  <rect x="47" y="98" width="66" height="63" rx="14" fill="#1b1733"/><path d="M72 89v8m16-8v8M58 116h44M63 145h34"/>
+  <path d="m80 122-7 10h8l-3 9 11-13h-9l3-6" stroke="#ffacd8"/>
+  <path d="M45 110q-24 8-23 33l10 3q0-19 14-22M58 164l-7 25h22l4-25m13 0 4 25h22l-11-25M48 193h28m15 0h28"/>
+  <g class="robot-arm"><path d="M116 106q28 0 23-27l-11 1q3 13-12 13M127 78l-3-12m10 11 2-15m2 17 10-8"/></g>
+  <path d="m12 34 4-9 4 9 9 4-9 4-4 9-4-9-9-4z" stroke="#ffdbac"/>
+ </svg>
+ <svg class="bg-xr" viewBox="0 0 240 170">
+  <path d="M42 67Q40 25 116 27q64 0 80 45M49 61q-4-25 66-26 57 0 71 28"/>
+  <path d="m35 65 151-8 22 18-8 55-151 12-22-17z" fill="#1b1733"/><path d="m35 65 19 18 154-8M54 83l-5 59"/>
+  <rect x="68" y="88" width="52" height="34" rx="12" transform="rotate(-4 68 88)"/><rect x="133" y="83" width="52" height="34" rx="12" transform="rotate(-4 133 83)"/>
+  <path class="xr-scan" d="m76 103 36-2m29-3 36-2"/><path d="m214 35 4-10 4 10 10 4-10 4-4 10-4-10-10-4zM19 151h20m-10-10v20" stroke="#ffdbac"/>
+ </svg>
+ <svg class="bg-quantum" viewBox="-120 -120 240 240">
+  <ellipse rx="105" ry="35"/><ellipse rx="105" ry="35" transform="rotate(60)"/><ellipse rx="105" ry="35" transform="rotate(120)"/>
+  <circle class="quantum-core" r="9"/><circle r="17" opacity=".4"/>
+  <g class="electron-track"><circle class="quantum-electron" r="5"><animateMotion dur="7s" repeatCount="indefinite" path="M105 0 A105 35 0 1 1 -105 0 A105 35 0 1 1 105 0"/></circle></g>
+  <g transform="rotate(60)"><circle class="quantum-electron" r="4"><animateMotion dur="9s" repeatCount="indefinite" path="M-105 0 A105 35 0 1 1 105 0 A105 35 0 1 1 -105 0"/></circle></g>
+  <g transform="rotate(120)"><circle class="quantum-electron" r="4"><animateMotion dur="6s" repeatCount="indefinite" path="M105 0 A105 35 0 1 1 -105 0 A105 35 0 1 1 105 0"/></circle></g>
+ </svg>
+</div>
 <div class="wrap">
   <nav class="nav" aria-label="Sections">
     <a href="#focus">Focus</a>
@@ -316,9 +526,12 @@ footer {
 
   <header class="hero">
     <div class="hero-text">
+      <p class="eyebrow">Research · Engineering · Exploration</p>
       <h1>Ashish Kumar</h1>
       <p class="roles">Software Engineer and Independent Researcher</p>
-      <p class="lede">I design and research extended reality, from AR training simulations to VR for mental wellness. I build in Unity and Unreal Engine, and I now work as a software engineer in Python data engineering at Akiya 2.0 Inc. I hold an MSc in Digital Humanities from IIT Jodhpur.</p>
+      <p class="lede">I am a software engineer and independent researcher exploring extended reality, human-centered AI, machine learning (ML), computer vision (CV) and quantum computing, with interests in agentic AI and robotics. My research spans mixed-reality interfaces, sustainable XR systems and human–AI collaboration. I build hands-free AR experiences, VR wellness environments and Python data workflows using Unity, Unreal Engine and Lens Studio.</p>
+      <p class="education-summary">MSc Digital Humanities · IIT Jodhpur<br>BSc Bioinformatics · GITAM University<br>Senior Secondary (Class XII) · CBSE · Science<br>Physics, Chemistry &amp; Biotechnology</p>
+      <div class="hero-actions"><a href="#projects">Explore projects ↗</a><a href="https://www.linkedin.com/in/ashish-kumar-76603216b" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
     </div>
     <div class="scene">
       <div class="stage" id="stage">
@@ -359,19 +572,24 @@ footer {
     </div>
     <ul class="ledger">
       <li>
-        <span class="label">Oct 2025 to now</span>
-        <span class="title">Software Engineer, Akiya 2.0 Inc</span>
-        <span class="note">Python data engineering</span>
+        <span class="label">Apr–Jun 2026</span>
+        <span class="title"><a href="https://www.xrcc.events/" target="_blank" rel="noopener noreferrer">XR Developer, MedCareSnap / Pulse ↗</a><span class="desc">Prototyped hands-free CPR guidance and AED discovery for the XRCC Snap Spectacles track using Lens Studio, Python, WebSockets and gesture-led interfaces. Project-based work; finalist.</span></span>
+        <span class="note"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#000" d="M0 0h30v7H0z"/><path fill="#d00" d="M0 7h30v6H0z"/><path fill="#ffce00" d="M0 13h30v7H0z"/></svg> XRCC, Germany · Remote<br>Snap Spectacles</span>
       </li>
       <li>
-        <span class="label">Feb to Jun 2025</span>
-        <span class="title">Virtual Reality Engineer (Contributor), TranquilMind<span class="desc">Built VR environments and Meta Quest interactions for mental wellness apps. The co-founder's recommendation letter cites his creativity, adaptability and user-centred approach.</span></span>
-        <span class="note">Unreal Engine, C++</span>
+        <span class="label">October–December 2025</span>
+        <span class="title"><a href="https://www.akiya2.com/about" target="_blank" rel="noopener noreferrer">Software Development Intern, Akiya 2.0 ↗</a><span class="desc">Contributed to data collection, integration and database workflows for a Japan-focused vacant-property platform at Japan Inc. Holdings.</span></span>
+        <span class="note"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#fff" d="M0 0h30v20H0z"/><circle cx="15" cy="10" r="6" fill="#bc002d"/></svg> Japan · Remote<br>Python, JavaScript</span>
       </li>
       <li>
-        <span class="label">Apr to Nov 2023</span>
-        <span class="title"><a href="https://inc42.com/buzz/meta-to-support-100-indian-developers-with-1-mn-fund" target="_blank" rel="noopener noreferrer">Meta XROS Fellowship</a><span class="desc">Part of Meta's $1 million fund, run with FICCI, to back 100 Indian XR developers.</span></span>
-        <span class="note"><span aria-hidden="true">🇮🇳</span> India, XR software engineer</span>
+        <span class="label">Feb–Jun 2025</span>
+        <span class="title"><a href="https://in.linkedin.com/company/tranquilmind" target="_blank" rel="noopener noreferrer">Software Engineer, TranquilMind.AI ↗</a><span class="desc">Designed VR environments for AI-driven wellness applications and optimized Meta Quest interactions in Unreal Engine and C++.</span></span>
+        <span class="note">Remote · Bengaluru, India <svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#ff9933" d="M0 0h30v6.666666666666667H0z"/><path fill="#fff" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#138808" d="M0 13.333333333333334h30v6.666666666666667H0z"/><circle cx="15" cy="10" r="2.8" fill="none" stroke="#000080" stroke-width=".5"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(0 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(15 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(30 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(45 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(60 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(75 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(90 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(105 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(120 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(135 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(150 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(165 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(180 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(195 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(210 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(225 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(240 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(255 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(270 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(285 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(300 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(315 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(330 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(345 15 10)"/></svg></span>
+      </li>
+      <li>
+        <span class="label">Apr–Nov 2023</span>
+        <span class="title"><a href="https://xrosfellowship.ficci.in/" target="_blank" rel="noopener noreferrer">XR Software Developer, XROS Fellowship ↗</a><span class="desc">Built a hands-free industrial AR maintenance-guide prototype using Unity, C# and Vuforia as part of the Meta-supported open-source XR initiative.</span></span>
+        <span class="note"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#ff9933" d="M0 0h30v6.666666666666667H0z"/><path fill="#fff" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#138808" d="M0 13.333333333333334h30v6.666666666666667H0z"/><circle cx="15" cy="10" r="2.8" fill="none" stroke="#000080" stroke-width=".5"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(0 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(15 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(30 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(45 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(60 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(75 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(90 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(105 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(120 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(135 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(150 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(165 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(180 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(195 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(210 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(225 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(240 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(255 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(270 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(285 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(300 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(315 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(330 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(345 15 10)"/></svg> India</span>
       </li>
     </ul>
   </section>
@@ -398,21 +616,10 @@ footer {
         <span class="title"><a href="https://github.com/Ashish11828/khaali-dabba-nahi-lautate" target="_blank" rel="noopener noreferrer">Khaali Dabba Nahi Lautate</a><span class="desc">An everyday Indian magic storytelling game. Explore a miniature neighbourhood, find clues about three neighbours, pick a gift and deliver it to a doorstep. A playable prototype, with on-glasses testing still to do.</span><span class="chips"><span>TypeScript</span><span>Lens Studio</span><span>Spectacles Interaction Kit</span><span>UIKit</span><span>WorldQuery</span></span></span>
         <span class="note"><a href="https://github.com/Ashish11828/khaali-dabba-nahi-lautate" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
       </li>
-    </ul>
-
-    <h3 class="group">More XR work</h3>
-    <ul class="ledger">
       <li>
-        <span class="label">Mixed reality</span>
-        <span class="title">Pet Home Mixed Reality<span class="desc">A virtual pet's home that merges with the user's real living space.</span></span>
-      </li>
-      <li>
-        <span class="label">VR</span>
-        <span class="title">Robo Escape<span class="desc">A VR game of puzzles and obstacles, built around optimized rendering.</span></span>
-      </li>
-      <li>
-        <span class="label">Mixed reality</span>
-        <span class="title">Mixed Reality Table Tennis<span class="desc">A hybrid game played with natural gestures.</span></span>
+        <span class="label">Quantum ML</span>
+        <span class="title"><a href="https://github.com/Ashish11828/Quark_disease_classification" target="_blank" rel="noopener noreferrer">QuantumX Alzheimer's Classification</a><span class="desc">A hybrid quantum-classical model that classifies Alzheimer's disease and mild cognitive impairment from 9 clinical features reduced to a 4-qubit circuit, with a Streamlit dashboard and explainability tools. On 39 OASIS-1 subjects the quantum classifier reached 76.5% accuracy against 77.5% for a classical SVM, and the project makes no claim of quantum advantage. Built for a quantum machine learning healthcare challenge; the repository is a fork of maxiemox/Quark_disease_classification.</span><span class="chips"><span>Python</span><span>PennyLane</span><span>Qiskit</span><span>scikit-learn</span><span>Streamlit</span></span></span>
+        <span class="note"><a href="https://github.com/Ashish11828/Quark_disease_classification" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span>
       </li>
     </ul>
   </section>
@@ -439,6 +646,10 @@ footer {
         <span class="title">3D and design<span class="chips"><span>Blender</span><span>Substance Painter</span><span>Figma</span></span></span>
       </li>
       <li>
+        <span class="label">Quantum</span>
+        <span class="title">Quantum computing<span class="chips"><span>Qiskit</span><span>PennyLane</span><span>Quantum machine learning</span></span></span>
+      </li>
+      <li>
         <span class="label">Data</span>
         <span class="title">Data and ML<span class="chips"><span>Data engineering</span><span>Machine learning</span><span>Computer vision</span><span>DBMS</span><span>Data analytics</span></span></span>
       </li>
@@ -453,46 +664,58 @@ footer {
     <h3 class="group">Fellowships and scholarships</h3>
     <ul class="ledger">
       <li>
-        <span class="label"><span aria-hidden="true">🇮🇳</span> Meta XROS, India</span>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#ff9933" d="M0 0h30v6.666666666666667H0z"/><path fill="#fff" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#138808" d="M0 13.333333333333334h30v6.666666666666667H0z"/><circle cx="15" cy="10" r="2.8" fill="none" stroke="#000080" stroke-width=".5"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(0 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(15 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(30 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(45 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(60 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(75 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(90 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(105 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(120 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(135 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(150 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(165 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(180 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(195 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(210 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(225 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(240 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(255 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(270 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(285 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(300 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(315 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(330 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(345 15 10)"/></svg> Meta XROS, India</span>
         <span class="title">Top 100 Meta Developer</span>
         <span class="note">100 of 2,800+ applicants</span>
       </li>
       <li>
-        <span class="label"><span aria-hidden="true">🇺🇸</span> Unity and Meta, US</span>
-        <span class="title">XR Bootcamp Scholarship</span>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#fff" d="M0 0h30v20H0z"/><path fill="#b22234" d="M0 0h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 3.076923076923077h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 6.153846153846154h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 9.23076923076923h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 12.307692307692308h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 15.384615384615385h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 18.46153846153846h30v1.5384615384615385H0z"/><path fill="#3c3b6e" d="M0 0h12v10.76923076923077H0z"/><circle cx="1" cy="0.8" r=".38" fill="#fff"/><circle cx="3" cy="0.8" r=".38" fill="#fff"/><circle cx="5" cy="0.8" r=".38" fill="#fff"/><circle cx="7" cy="0.8" r=".38" fill="#fff"/><circle cx="9" cy="0.8" r=".38" fill="#fff"/><circle cx="11" cy="0.8" r=".38" fill="#fff"/><circle cx="2" cy="1.93" r=".38" fill="#fff"/><circle cx="4" cy="1.93" r=".38" fill="#fff"/><circle cx="6" cy="1.93" r=".38" fill="#fff"/><circle cx="8" cy="1.93" r=".38" fill="#fff"/><circle cx="10" cy="1.93" r=".38" fill="#fff"/><circle cx="1" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="3" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="5" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="7" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="9" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="11" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="2" cy="4.1899999999999995" r=".38" fill="#fff"/><circle cx="4" cy="4.1899999999999995" r=".38" fill="#fff"/><circle cx="6" cy="4.1899999999999995" r=".38" fill="#fff"/><circle cx="8" cy="4.1899999999999995" r=".38" fill="#fff"/><circle cx="10" cy="4.1899999999999995" r=".38" fill="#fff"/><circle cx="1" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="3" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="5" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="7" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="9" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="11" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="2" cy="6.449999999999999" r=".38" fill="#fff"/><circle cx="4" cy="6.449999999999999" r=".38" fill="#fff"/><circle cx="6" cy="6.449999999999999" r=".38" fill="#fff"/><circle cx="8" cy="6.449999999999999" r=".38" fill="#fff"/><circle cx="10" cy="6.449999999999999" r=".38" fill="#fff"/><circle cx="1" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="3" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="5" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="7" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="9" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="11" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="2" cy="8.709999999999999" r=".38" fill="#fff"/><circle cx="4" cy="8.709999999999999" r=".38" fill="#fff"/><circle cx="6" cy="8.709999999999999" r=".38" fill="#fff"/><circle cx="8" cy="8.709999999999999" r=".38" fill="#fff"/><circle cx="10" cy="8.709999999999999" r=".38" fill="#fff"/><circle cx="1" cy="9.84" r=".38" fill="#fff"/><circle cx="3" cy="9.84" r=".38" fill="#fff"/><circle cx="5" cy="9.84" r=".38" fill="#fff"/><circle cx="7" cy="9.84" r=".38" fill="#fff"/><circle cx="9" cy="9.84" r=".38" fill="#fff"/><circle cx="11" cy="9.84" r=".38" fill="#fff"/></svg> Unity and Meta, US</span>
+        <span class="title">XR Bootcamp Scholarship<span class="desc">Awarded an $8,000 scholarship; graduated with High Honors.</span></span>
         <span class="note">Recipient</span>
       </li>
       <li>
-        <span class="label"><span aria-hidden="true">🇺🇸</span> MXR, US</span>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#fff" d="M0 0h30v20H0z"/><path fill="#b22234" d="M0 0h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 3.076923076923077h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 6.153846153846154h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 9.23076923076923h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 12.307692307692308h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 15.384615384615385h30v1.5384615384615385H0z"/><path fill="#b22234" d="M0 18.46153846153846h30v1.5384615384615385H0z"/><path fill="#3c3b6e" d="M0 0h12v10.76923076923077H0z"/><circle cx="1" cy="0.8" r=".38" fill="#fff"/><circle cx="3" cy="0.8" r=".38" fill="#fff"/><circle cx="5" cy="0.8" r=".38" fill="#fff"/><circle cx="7" cy="0.8" r=".38" fill="#fff"/><circle cx="9" cy="0.8" r=".38" fill="#fff"/><circle cx="11" cy="0.8" r=".38" fill="#fff"/><circle cx="2" cy="1.93" r=".38" fill="#fff"/><circle cx="4" cy="1.93" r=".38" fill="#fff"/><circle cx="6" cy="1.93" r=".38" fill="#fff"/><circle cx="8" cy="1.93" r=".38" fill="#fff"/><circle cx="10" cy="1.93" r=".38" fill="#fff"/><circle cx="1" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="3" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="5" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="7" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="9" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="11" cy="3.0599999999999996" r=".38" fill="#fff"/><circle cx="2" cy="4.1899999999999995" r=".38" fill="#fff"/><circle cx="4" cy="4.1899999999999995" r=".38" fill="#fff"/><circle cx="6" cy="4.1899999999999995" r=".38" fill="#fff"/><circle cx="8" cy="4.1899999999999995" r=".38" fill="#fff"/><circle cx="10" cy="4.1899999999999995" r=".38" fill="#fff"/><circle cx="1" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="3" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="5" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="7" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="9" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="11" cy="5.319999999999999" r=".38" fill="#fff"/><circle cx="2" cy="6.449999999999999" r=".38" fill="#fff"/><circle cx="4" cy="6.449999999999999" r=".38" fill="#fff"/><circle cx="6" cy="6.449999999999999" r=".38" fill="#fff"/><circle cx="8" cy="6.449999999999999" r=".38" fill="#fff"/><circle cx="10" cy="6.449999999999999" r=".38" fill="#fff"/><circle cx="1" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="3" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="5" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="7" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="9" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="11" cy="7.579999999999999" r=".38" fill="#fff"/><circle cx="2" cy="8.709999999999999" r=".38" fill="#fff"/><circle cx="4" cy="8.709999999999999" r=".38" fill="#fff"/><circle cx="6" cy="8.709999999999999" r=".38" fill="#fff"/><circle cx="8" cy="8.709999999999999" r=".38" fill="#fff"/><circle cx="10" cy="8.709999999999999" r=".38" fill="#fff"/><circle cx="1" cy="9.84" r=".38" fill="#fff"/><circle cx="3" cy="9.84" r=".38" fill="#fff"/><circle cx="5" cy="9.84" r=".38" fill="#fff"/><circle cx="7" cy="9.84" r=".38" fill="#fff"/><circle cx="9" cy="9.84" r=".38" fill="#fff"/><circle cx="11" cy="9.84" r=".38" fill="#fff"/></svg> MXR, US</span>
         <span class="title">MXR Scholarship</span>
         <span class="note">Published</span>
       </li>
       <li>
-        <span class="label"><span aria-hidden="true">🇦🇪</span> NYU, UAE</span>
-        <span class="title">Digital Humanities Winter School 2024</span>
+        <span class="label"><svg class="flag" viewBox="0 0 12 6" aria-hidden="true" focusable="false"><path fill="#00843d" d="M0 0h12v2H0z"/><path fill="#fff" d="M0 2h12v2H0z"/><path fill="#000" d="M0 4h12v2H0z"/><path fill="#ef3340" d="M0 0h3v6H0z"/></svg> NYU, UAE</span>
+        <span class="title">Digital Humanities Winter School 2024 — Computing Culture<span class="desc">Studied exploratory data analysis (EDA), natural language processing (NLP), computer vision, convolutional neural networks (CNNs) and image analysis.</span></span>
         <span class="note">Fully funded</span>
       </li>
       <li>
-        <span class="label"><span aria-hidden="true">🇮🇹</span> IMT Lucca, Italy</span>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#009246" d="M0 0h10v20H0z"/><path fill="#fff" d="M10 0h10v20H10z"/><path fill="#ce2b37" d="M20 0h10v20H20z"/></svg> IMT Lucca, Italy</span>
         <span class="title">Game Design Summer School</span>
         <span class="note">DAAD-funded</span>
       </li>
+      <li>
+        <span class="label"><svg class="flag" viewBox="0 0 8 5" aria-hidden="true" focusable="false"><path fill="#fff" d="M0 0h8v5H0z"/><path fill="#dc143c" d="M0 2.5h8V5H0z"/></svg> ISAGA, Poland</span>
+        <span class="title">ISAGA Summer School<span class="desc">Participation fee waived through a NAWA grant (Polish National Agency for Academic Exchange) secured by the organizer.</span></span>
+        <span class="note">Fee waived</span>
+      </li>
     </ul>
 
+    <h3 class="group">Demos</h3>
+    <ul class="ledger"><li><span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#000" d="M0 0h30v7H0z"/><path fill="#d00" d="M0 7h30v6H0z"/><path fill="#ffce00" d="M0 13h30v7H0z"/></svg> Bochum, Germany</span><span class="title"><a href="https://vrs.ruhr-uni-bochum.de/programme-2026/" target="_blank" rel="noopener noreferrer">VR Summit 2026 — MedCareSnap ↗</a><span class="desc">Listed in the official VR Demos programme as Ashish Kumar, Independent Researcher.</span></span><span class="note">Accepted demo<br>12–13 October 2026</span></li></ul>
     <h3 class="group">Papers</h3>
     <ul class="ledger">
       <li>
-        <span class="label"><span aria-hidden="true">🇩🇪</span> ESA XR 2026, Cologne, Germany</span>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#aa151b" d="M0 0h30v20H0z"/><path fill="#f1bf00" d="M0 5h30v10H0z"/></svg> ICMLAI 2026, Spain</span>
+        <span class="title">Neural-Sensing Smart Glasses for Human–AI Collaboration and Augmented Intelligence<span class="desc">Accepted poster abstract.</span></span>
+        <span class="note">Accepted</span>
+      </li>
+      <li>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#000" d="M0 0h30v6.666666666666667H0z"/><path fill="#d00" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#ffce00" d="M0 13.333333333333334h30v6.666666666666667H0z"/></svg> ESA XR 2026, Cologne, Germany</span>
         <span class="title">Mixed-Reality Camera Interface for Enhanced Data Collection in Space Analog Missions<span class="desc">A hands-free Meta Quest system for recording, spatial mapping and gesture or gaze-triggered capture, with automatic metadata tagging, for analog habitat research.</span></span>
         <span class="note">Published, March 2026</span>
       </li>
       <li>
-        <span class="label"><span aria-hidden="true">🇯🇵</span> AIVR 2026, Kobe, Japan</span>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#fff" d="M0 0h30v20H0z"/><circle cx="15" cy="10" r="6" fill="#bc002d"/></svg> AIVR 2026, Kobe, Japan</span>
         <span class="title">Decarbonizing the Metaverse<span class="desc">Sustainable System Design for Multi-Modal XR, AI, and IoT Responsive Environments. Full paper accepted for oral presentation with major revisions.</span></span>
         <span class="note">Accepted</span>
       </li>
       <li>
-        <span class="label"><span aria-hidden="true">🇪🇪</span> XRM 2026, Estonia</span>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#4891d9" d="M0 0h30v6.666666666666667H0z"/><path fill="#000" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#fff" d="M0 13.333333333333334h30v6.666666666666667H0z"/></svg> XRM 2026, Estonia</span>
         <span class="title">Augmenting Ideation<span class="desc">A Mixed Reality Framework for Dynamic Mind Mapping and Content Generation. Extended abstract.</span></span>
         <span class="note">Accepted</span>
       </li>
@@ -501,17 +724,27 @@ footer {
     <h3 class="group">Competitions, mentoring and badges</h3>
     <ul class="ledger">
       <li>
-        <span class="label"><span aria-hidden="true">🇯🇵</span> Japan</span>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#fff" d="M0 0h30v20H0z"/><circle cx="15" cy="10" r="6" fill="#bc002d"/></svg> Japan</span>
         <span class="title"><a href="https://job.tracks.run/share/programmingtest-26-01/4b04fb7e-294d-4912-8e40-b4e63901581c" target="_blank" rel="noopener noreferrer">National Programming Challenge</a></span>
         <span class="note">Ranked 1st, 100/100</span>
       </li>
       <li>
-        <span class="label"><span aria-hidden="true">🇩🇪</span> XRCC, Germany</span>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#fff" d="M0 0h30v20H0z"/><circle cx="15" cy="10" r="6" fill="#bc002d"/></svg> Japan</span>
+        <span class="title"><a href="https://job.tracks.run/user/reports/challenges/gamefreak-lp-03" target="_blank" rel="noopener noreferrer">GAME FREAK Programming Challenge ↗</a></span>
+        <span class="note">Ranked 1st of 33, 100/100</span>
+      </li>
+      <li>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#ff9933" d="M0 0h30v6.666666666666667H0z"/><path fill="#fff" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#138808" d="M0 13.333333333333334h30v6.666666666666667H0z"/><circle cx="15" cy="10" r="2.8" fill="none" stroke="#000080" stroke-width=".5"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(0 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(15 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(30 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(45 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(60 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(75 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(90 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(105 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(120 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(135 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(150 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(165 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(180 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(195 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(210 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(225 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(240 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(255 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(270 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(285 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(300 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(315 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(330 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(345 15 10)"/></svg> Kochi, India</span>
+        <span class="title">Qiskit Fall Fest 2026 x QuantumX, Quantum Hack Day<span class="desc">Top 10 finalist at the 1 November 2026 quantum hackathon, with the QuantumX hybrid quantum-classical classification project.</span></span>
+        <span class="note">Top 10 Finalist</span>
+      </li>
+      <li>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#000" d="M0 0h30v6.666666666666667H0z"/><path fill="#d00" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#ffce00" d="M0 13.333333333333334h30v6.666666666666667H0z"/></svg> XRCC, Germany</span>
         <span class="title">XRCC Hackathon</span>
         <span class="note">Finalist</span>
       </li>
       <li>
-        <span class="label"><span aria-hidden="true">🇮🇳</span> DJX, India</span>
+        <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#ff9933" d="M0 0h30v6.666666666666667H0z"/><path fill="#fff" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#138808" d="M0 13.333333333333334h30v6.666666666666667H0z"/><circle cx="15" cy="10" r="2.8" fill="none" stroke="#000080" stroke-width=".5"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(0 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(15 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(30 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(45 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(60 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(75 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(90 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(105 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(120 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(135 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(150 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(165 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(180 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(195 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(210 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(225 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(240 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(255 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(270 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(285 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(300 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(315 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(330 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(345 15 10)"/></svg> DJX, India</span>
         <span class="title">DJX Hackathon</span>
         <span class="note">Mentor</span>
       </li>
@@ -530,13 +763,13 @@ footer {
     <ul class="ledger">
       <li>
         <span class="label">MSc</span>
-        <span class="title">Digital Humanities<span class="chips"><span>DSA</span><span>Programming</span><span>Android development</span><span>HCI</span><span>AR and VR content creation</span><span>Machine learning</span></span></span>
-        <span class="note"><span aria-hidden="true">🇮🇳</span> IIT Jodhpur, India</span>
+        <span class="title">Digital Humanities<span class="chips"><span>DSA</span><span>Programming</span><span>Android development</span><span>HCI</span><span>AR and VR content creation</span><span>Machine learning</span><span>R</span><span>Databases</span><span>Software engineering</span></span></span>
+        <span class="note"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#ff9933" d="M0 0h30v6.666666666666667H0z"/><path fill="#fff" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#138808" d="M0 13.333333333333334h30v6.666666666666667H0z"/><circle cx="15" cy="10" r="2.8" fill="none" stroke="#000080" stroke-width=".5"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(0 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(15 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(30 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(45 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(60 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(75 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(90 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(105 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(120 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(135 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(150 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(165 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(180 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(195 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(210 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(225 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(240 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(255 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(270 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(285 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(300 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(315 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(330 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(345 15 10)"/></svg> IIT Jodhpur, India</span>
       </li>
       <li>
         <span class="label">BSc</span>
         <span class="title">Bioinformatics<span class="chips"><span>DBMS</span><span>Data analytics</span><span>Introduction to Unix</span><span>Programming</span><span>Computational biology</span><span>Drug design</span></span></span>
-        <span class="note"><span aria-hidden="true">🇮🇳</span> GITAM University, India</span>
+        <span class="note"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#ff9933" d="M0 0h30v6.666666666666667H0z"/><path fill="#fff" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#138808" d="M0 13.333333333333334h30v6.666666666666667H0z"/><circle cx="15" cy="10" r="2.8" fill="none" stroke="#000080" stroke-width=".5"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(0 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(15 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(30 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(45 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(60 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(75 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(90 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(105 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(120 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(135 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(150 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(165 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(180 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(195 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(210 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(225 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(240 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(255 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(270 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(285 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(300 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(315 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(330 15 10)"/><path d="M15 10v-2.8" stroke="#000080" stroke-width=".18" transform="rotate(345 15 10)"/></svg> GITAM University, India</span>
       </li>
     </ul>
   </section>
@@ -1012,4 +1245,10 @@ footer {
 })();
 </script>
 
-</body></html>
+<script>
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+ document.querySelectorAll('.anime-world svg').forEach(function(svg) { if(svg.pauseAnimations) svg.pauseAnimations(); });
+}
+</script>
+</body>
+</html>
