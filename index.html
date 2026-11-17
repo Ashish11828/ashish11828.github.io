@@ -459,12 +459,129 @@ h2::before {color:#b8a5ff;}
 .cartoon-fill{fill:#141e30;}.cartoon-cheek{fill:#e9a3c1;}.bg-smart,.bg-xr{stroke:#b8a5ff;}.bg-ai,.bg-robot{stroke:#7bdcd2;}.bg-ml,.bg-quantum{stroke:#a5b5ff;}
 @media(max-width:760px){h1{text-shadow:2px 2px 0 #69618f,3px 3px 0 #1d2940;}}
 
+
+/* Playful pastel cartoon background */
+:root,:root[data-theme="light"],:root[data-theme="dark"]{--bg:#fff5d9;--surface:#fffdf3;--fg:#302e39;--muted:#64616d;--line:#d7c9ad;--accent:#a13752;--ax-x:#e85c65;--ax-y:#328d85;--ax-z:#5371b1;color-scheme:light;}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#fff5d9;--surface:#fffdf3;--fg:#302e39;--muted:#64616d;--line:#d7c9ad;--accent:#a13752;--ax-x:#e85c65;--ax-y:#328d85;--ax-z:#5371b1;}}
+body{background-color:#fff5d9;background-image:radial-gradient(ellipse at 95% 8%,#ffd7b080,transparent 40%),radial-gradient(ellipse at 0% 50%,#bce6db70,transparent 45%),radial-gradient(circle,#d4ba8c55 1.5px,transparent 1.5px);background-size:auto,auto,30px 30px;}
+.nav{background:#fffdf1ef;border:2px solid #51404e;box-shadow:4px 5px 0 #e8bf98;border-radius:16px 12px 18px 10px;}
+.nav a:hover{background:#ffdfb7;color:#9b334e;}
+h1{color:#3d3344;text-shadow:2px 2px 0 #ffcf7c,4px 4px 0 #efb3a1;}
+.roles,.group{color:#a13752;}.eyebrow{color:#27756d;}.eyebrow::before{background:#27756d;box-shadow:0 0 0 4px #bde1d0;}
+.hero{border-bottom-color:#ceb58e;}.hero-actions a{border:2px solid #51404e;background:#fffdf1;box-shadow:4px 4px 0 #e8bf98;border-radius:10px 7px 12px 8px;}
+.hero-actions a:first-child{background:#f7bf61;border-color:#51404e;color:#3c3038;}.hero-actions a:hover{box-shadow:6px 6px 0 #e8bf98;}
+.education-summary{border-color:#4c9d91;}.section-head::after{background:linear-gradient(90deg,#c3a77f,transparent);}h2::before{color:#d77b42;}
+.focus,#experience .ledger li{background:#fffdf2ed;border:2px solid #65525f;box-shadow:5px 5px 0 #e6c7a3;border-radius:16px 10px 18px 12px;}
+.focus:nth-child(even){border-color:#51766b;background:#edf7e9ed;}.focus figcaption{color:#3d3344;}.focus figcaption .label,.ledger .note,.links .go{color:#27756d;}
+#experience .ledger li::before{background:#df7888;left:-2px;width:4px;}#experience .ledger li:nth-child(even)::before{background:#64a89c;}
+.ledger .title a:hover{color:#a13752;}.chips span{background:#f4e6cc;border-color:#ccb68e;color:#66503d;}.stage{background:radial-gradient(circle,#ffd38666,transparent 68%);}
+.scene::before{color:#df9943;text-shadow:2px 2px 0 #ffdd95;}.scene::after{color:#5b9d91;}footer{border-color:#ceb58e;}
+.anime-world{opacity:.68;}.anime-world svg{stroke-width:2.4;filter:drop-shadow(2px 3px 0 #b09a7130);}
+.bg-smart,.bg-xr{stroke:#6e5168;}.bg-ai,.bg-robot{stroke:#46766c;}.bg-ml,.bg-quantum{stroke:#7272a0;}
+.cartoon-fill{fill:#ffddbd;}.cartoon-cheek{fill:#ed8e91;}.robot-eye{fill:#413c49;filter:none;}.ml-signal,.quantum-electron{fill:#df9943;filter:none;}.quantum-core{fill:#df7888;filter:none;}
+.bg-robot rect:first-of-type{fill:#bee2d4;}.bg-robot rect:nth-of-type(3){fill:#ffd58b;}.bg-xr>path:nth-of-type(2){fill:#dcd4ef;}
+.xr-scan{stroke:#de7d70;}.bg-smart{transform:rotate(-8deg);}.bg-ai{transform:rotate(8deg);}
+@media(max-width:1350px){.anime-world{opacity:.22;}}@media(max-width:600px){.anime-world{opacity:.15;}}
+@media(max-width:760px){h1{text-shadow:2px 2px 0 #ffcf7c,3px 3px 0 #efb3a1;}}
+
+
+.focus-art {display:block;width:100%;height:170px;color:var(--accent);}
+.focus-grid {grid-template-columns:repeat(3,minmax(0,1fr));}
+@media(max-width:760px){.focus-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.focus-art{height:130px;}}
+
+/* Animated focus illustrations */
+.quantum-focus>g {transform-origin:80px 80px;animation:focus-orbit 14s linear infinite;}
+.quantum-focus>circle:first-of-type {transform-origin:80px 80px;animation:qubit-pulse 2.5s ease-in-out infinite;}
+.quantum-focus>circle:nth-of-type(2) {transform-origin:80px 80px;animation:focus-orbit 5s linear infinite;}
+.quantum-focus>circle:nth-of-type(3) {transform-origin:80px 80px;animation:focus-orbit 7s linear infinite reverse;}
+.safety-focus>g:first-of-type {animation:shield-float 5s ease-in-out infinite;}
+.safety-focus>g:first-of-type>path:nth-child(2) {stroke-dasharray:70;stroke-dashoffset:70;animation:safety-check 4s ease-in-out infinite;}
+.safety-focus>g:last-of-type>circle {transform-box:fill-box;transform-origin:center;animation:safety-node 2s ease-in-out infinite;}
+.safety-focus>g:last-of-type>circle:nth-child(even) {animation-delay:1s;}
+.space-focus>g:first-of-type {transform-origin:76px 88px;animation:space-float 7s ease-in-out infinite;}
+.space-focus>g:first-of-type>path:first-of-type {transform-origin:76px 88px;animation:space-flight 12s ease-in-out infinite;}
+.space-focus>g:last-of-type>circle {animation:star-twinkle 2.4s ease-in-out infinite;}
+.space-focus>g:last-of-type>circle:nth-child(2){animation-delay:.8s;}
+.space-focus>g:last-of-type>circle:nth-child(3){animation-delay:1.6s;}
+@keyframes focus-orbit {to{transform:rotate(360deg);}}
+@keyframes qubit-pulse {0%,100%{transform:scale(.85);opacity:.7;}50%{transform:scale(1.15);opacity:1;}}
+@keyframes shield-float {0%,100%{transform:translateY(3px);}50%{transform:translateY(-4px);}}
+@keyframes safety-check {0%,15%{stroke-dashoffset:70;opacity:.3;}45%,85%{stroke-dashoffset:0;opacity:1;}100%{stroke-dashoffset:0;opacity:0;}}
+@keyframes safety-node {0%,100%{opacity:.35;transform:scale(.8);}50%{opacity:1;transform:scale(1.2);}}
+@keyframes space-float {0%,100%{transform:translateY(3px) rotate(-3deg);}50%{transform:translateY(-4px) rotate(3deg);}}
+@keyframes space-flight {0%,100%{transform:rotate(-5deg);}50%{transform:rotate(20deg);}}
+@keyframes star-twinkle {0%,100%{opacity:.2;}50%{opacity:1;}}
+@media(prefers-reduced-motion:reduce){.focus-art *{animation:none!important;}.safety-focus>g:first-of-type>path:nth-child(2){stroke-dashoffset:0;}}
+
+
+/* Retro anime atmosphere: mint, ivory, muted coral and ink */
+body{background-color:#efe9d7;background-image:radial-gradient(ellipse at 90% 0%,#a7c2ad70,transparent 50%),radial-gradient(ellipse at 0% 70%,#cfaaa440,transparent 45%),repeating-linear-gradient(0deg,#6f654703 0px,#6f654703 1px,transparent 1px,transparent 4px);background-size:auto,auto,auto;}
+.nav{background:#e4eadbed;border-color:#374c43;box-shadow:4px 5px 0 #b7baa3;}
+h1{color:#293f37;text-shadow:2px 2px 0 #ddd1ac,4px 4px 0 #c69a87;}.roles,.group{color:#8b4e50;}
+.focus,#experience .ledger li{background:#faf5e8ed;border-color:#4b594c;box-shadow:5px 5px 0 #c5b99b;}
+.focus:nth-child(even){background:#e3ecdeed;border-color:#4b6658;}
+.hero-actions a:first-child{background:#a8c2aa;border-color:#374c43;color:#243e32;}
+.anime-world{opacity:.46;}.anime-world svg{filter:drop-shadow(2px 3px 0 #574a3c15);}
+.bg-safety-anime{width:190px;left:max(-35px,calc(50% - 755px));top:48%;stroke:#384f45;stroke-width:2.5;animation:shield-float 6s ease-in-out infinite;}
+.bg-space-anime{width:265px;right:max(-80px,calc(50% - 790px));top:52%;stroke:#4f574d;stroke-width:2;}
+.space-back-planet{transform-origin:110px 132px;animation:space-float 10s ease-in-out infinite;}
+.space-back-ship{animation:ship-travel 8s ease-in-out infinite;}
+.rocket-flame{transform-origin:195px 88px;animation:flame-flicker .8s ease-in-out infinite alternate;}
+.space-back-stars,.safety-spark{animation:star-twinkle 3s ease-in-out infinite;}
+.background-check{stroke-dasharray:80;animation:bg-check-draw 5s ease-in-out infinite;}
+.bg-robot{top:25%;}.bg-ai{top:32%;}.bg-quantum{bottom:0%;width:180px;}.bg-ml{bottom:0%;width:145px;}
+@keyframes ship-travel{0%,100%{transform:translate(-4px,8px) rotate(-3deg);}50%{transform:translate(8px,-12px) rotate(4deg);}}
+@keyframes flame-flicker{from{transform:scale(.8);opacity:.5;}to{transform:scale(1.1);opacity:1;}}
+@keyframes bg-check-draw{0%,10%{stroke-dashoffset:80;}45%,90%{stroke-dashoffset:0;}100%{stroke-dashoffset:-80;}}
+@media(max-width:1350px){.anime-world{opacity:.19;}.bg-safety-anime{left:-65px;}.bg-space-anime{right:-115px;}}
+@media(max-width:600px){.anime-world{opacity:.12;}.bg-safety-anime{width:150px;left:-80px;}.bg-space-anime{width:200px;right:-120px;}}
+@media(prefers-reduced-motion:reduce){.anime-world *{animation:none!important;}}
+
+/* Soft green, pink and blue palette */
+body{background-color:#eef6ef;background-image:radial-gradient(ellipse at 95% 8%,#b9d8f28c,transparent 48%),radial-gradient(ellipse at 0% 45%,#f3c4d580,transparent 48%),radial-gradient(ellipse at 55% 90%,#bce0c480,transparent 50%);}
+.nav{background:#edf5eeed;border-color:#4d7062;box-shadow:4px 5px 0 #c1d5df;}
+h1{color:#315e50;text-shadow:2px 2px 0 #f3c6d7,4px 4px 0 #bcd5e9;}.roles,.group{color:#a04f74;}
+.hero{border-bottom-color:#b2cbd1;}.hero-actions a:first-child{background:#bbdfc7;color:#2d5144;border-color:#4d7062;}.hero-actions a{box-shadow:4px 4px 0 #d9c6db;}
+.focus,#experience .ledger li{background:#f5e8efee;border-color:#98758b;box-shadow:5px 5px 0 #c8d9e6;}
+.focus:nth-child(3n+1){background:#e4f1e7ee;border-color:#6c9782;}.focus:nth-child(3n+2){background:#e5eff9ee;border-color:#7595b1;}.focus:nth-child(3n){background:#f8e7efee;border-color:#b2839c;}
+#experience .ledger li:nth-child(even){background:#e8f1f8ee;border-color:#7595b1;}
+.chips span{background:#e7edf6;border-color:#b6c8d9;color:#435f7e;}.ledger .note,.links .go,.eyebrow{color:#337460;}.education-summary{border-color:#6497bd;}
+h2::before{color:#bf7396;}.section-head::after{background:linear-gradient(90deg,#8fb6c8,transparent);}
+.bg-smart,.bg-xr,.bg-safety-anime{stroke:#aa6c91;}.bg-ai,.bg-robot{stroke:#58927b;}.bg-ml,.bg-quantum,.bg-space-anime{stroke:#6595bc;}
+.cartoon-fill{fill:#dceaf6;}.cartoon-cheek{fill:#e7a4be;}.stage{background:radial-gradient(circle,#e9b9d333,transparent 68%);}
+@media(max-width:760px){h1{text-shadow:2px 2px 0 #f3c6d7,3px 3px 0 #bcd5e9;}}
 </style>
-<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}/* Soft green, pink and blue palette */
+body{background-color:#eef6ef;background-image:radial-gradient(ellipse at 95% 8%,#b9d8f28c,transparent 48%),radial-gradient(ellipse at 0% 45%,#f3c4d580,transparent 48%),radial-gradient(ellipse at 55% 90%,#bce0c480,transparent 50%);}
+.nav{background:#edf5eeed;border-color:#4d7062;box-shadow:4px 5px 0 #c1d5df;}
+h1{color:#315e50;text-shadow:2px 2px 0 #f3c6d7,4px 4px 0 #bcd5e9;}.roles,.group{color:#a04f74;}
+.hero{border-bottom-color:#b2cbd1;}.hero-actions a:first-child{background:#bbdfc7;color:#2d5144;border-color:#4d7062;}.hero-actions a{box-shadow:4px 4px 0 #d9c6db;}
+.focus,#experience .ledger li{background:#f5e8efee;border-color:#98758b;box-shadow:5px 5px 0 #c8d9e6;}
+.focus:nth-child(3n+1){background:#e4f1e7ee;border-color:#6c9782;}.focus:nth-child(3n+2){background:#e5eff9ee;border-color:#7595b1;}.focus:nth-child(3n){background:#f8e7efee;border-color:#b2839c;}
+#experience .ledger li:nth-child(even){background:#e8f1f8ee;border-color:#7595b1;}
+.chips span{background:#e7edf6;border-color:#b6c8d9;color:#435f7e;}.ledger .note,.links .go,.eyebrow{color:#337460;}.education-summary{border-color:#6497bd;}
+h2::before{color:#bf7396;}.section-head::after{background:linear-gradient(90deg,#8fb6c8,transparent);}
+.bg-smart,.bg-xr,.bg-safety-anime{stroke:#aa6c91;}.bg-ai,.bg-robot{stroke:#58927b;}.bg-ml,.bg-quantum,.bg-space-anime{stroke:#6595bc;}
+.cartoon-fill{fill:#dceaf6;}.cartoon-cheek{fill:#e7a4be;}.stage{background:radial-gradient(circle,#e9b9d333,transparent 68%);}
+@media(max-width:760px){h1{text-shadow:2px 2px 0 #f3c6d7,3px 3px 0 #bcd5e9;}}
+</style>
 </head>
 <body>
 
 <div class="anime-world" aria-hidden="true">
+<svg class="bg-safety-anime" viewBox="0 0 220 250">
+ <path fill="#dfb9ab" d="m110 25 67 25v67q0 61-67 100-67-39-67-100V50z"/>
+ <path fill="#f6ecd5" d="m110 38 54 21v57q0 49-54 85-54-36-54-85V59z"/>
+ <path d="M78 90q10-13 20 0m24 0q10-13 20 0M99 112q11 10 22 0"/>
+ <path class="background-check" d="m85 143 18 18 34-39" stroke="#397569" stroke-width="8"/>
+ <path d="m28 78-17-5m181 5 17-5M26 173l-13 10m181-10 13 10"/>
+ <g class="safety-spark"><path d="m174 20 5-12 5 12 12 5-12 5-5 12-5-12-12-5z" fill="#c58b5d"/></g>
+</svg>
+<svg class="bg-space-anime" viewBox="0 0 280 240">
+ <g class="space-back-planet"><circle cx="110" cy="132" r="47" fill="#b7cbb5"/><path d="M71 109q38-23 73-1m-73 39q40 23 76 0" opacity=".5"/><ellipse cx="110" cy="132" rx="90" ry="21" transform="rotate(-25 110 132)"/></g>
+ <g class="space-back-ship"><path d="M178 37q30-15 56-10 4 28-16 57l-31-4z" fill="#f4e7c8"/><path d="m188 80-16 21 1-36m45 19-1 27 19-38" fill="#c77f76"/><circle cx="211" cy="47" r="9" fill="#8cb8ad"/><path class="rocket-flame" d="m188 86-12 33 29-26" fill="#dfb774" stroke="#a5774d"/></g>
+ <g class="space-back-stars" fill="#c58b5d"><path d="m50 35 4-10 4 10 10 4-10 4-4 10-4-10-10-4z"/><circle cx="247" cy="156" r="3"/><circle cx="173" cy="205" r="3"/><circle cx="22" cy="165" r="3"/></g>
+</svg>
  <svg class="bg-smart" viewBox="0 0 200 120">
   <path d="m18 49-9-23 28 7m145 16 9-23-28 7M78 57q22-15 44 0"/>
   <rect class="cartoon-fill" x="17" y="40" width="64" height="47" rx="18"/><rect class="cartoon-fill" x="119" y="40" width="64" height="47" rx="18"/>
@@ -562,6 +679,32 @@ h2::before {color:#b8a5ff;}
       <figure class="focus">
         <canvas data-kind="robot" role="img" aria-label="Animated robot arm reaching for a moving target"></canvas>
         <figcaption><span class="label">Machines</span>Robotics</figcaption>
+      </figure>
+      <figure class="focus">
+        <svg class="focus-art quantum-focus" viewBox="0 0 160 160" role="img" aria-label="Animated quantum computing with a qubit and three orbital paths">
+          <g fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="80" cy="80" rx="61" ry="23"/><ellipse cx="80" cy="80" rx="61" ry="23" transform="rotate(60 80 80)"/><ellipse cx="80" cy="80" rx="61" ry="23" transform="rotate(120 80 80)"/></g>
+          <circle cx="80" cy="80" r="9" fill="currentColor"/><circle cx="141" cy="80" r="5" fill="var(--ax-y)"/><circle cx="49" cy="27" r="5" fill="var(--ax-x)"/>
+        </svg>
+        <figcaption><span class="label">Qubits</span>Quantum computing</figcaption>
+      </figure>
+      <figure class="focus">
+        <svg class="focus-art safety-focus" viewBox="0 0 160 160" role="img" aria-label="Animated AI safety shield with a check mark and connected model nodes">
+          <g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M80 20 127 38v39q0 39-47 64-47-25-47-64V38z"/><path d="m57 79 16 16 31-34" stroke="var(--ax-y)" stroke-width="6"/><path d="M19 43 33 51m94 0 14-8M18 111l24-13m76 0 24 13"/></g>
+          <g fill="var(--ax-y)"><circle cx="16" cy="41" r="5"/><circle cx="144" cy="41" r="5"/><circle cx="15" cy="113" r="5"/><circle cx="145" cy="113" r="5"/></g>
+        </svg>
+        <figcaption><span class="label">Trust &amp; reliability</span>AI safety</figcaption>
+      </figure>
+      <figure class="focus">
+        <svg class="focus-art space-focus" viewBox="0 0 160 160" role="img" aria-label="Animated space science with a ringed planet, stars and a spacecraft">
+          <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="76" cy="88" r="32"/>
+            <ellipse cx="76" cy="88" rx="61" ry="16" transform="rotate(-25 76 88)"/>
+            <path d="M61 67q12-6 24-2m-31 25q8 10 20 11M114 25l14-8 10 17-14 8zM115 26l-12-2-7 7 17 5m20-4 12 2 4 10-16-1M122 40l-5 13"/>
+            <path d="M28 25v12m-6-6h12m95 91v14m-7-7h14M46 131v8m-4-4h8" stroke="var(--ax-y)"/>
+          </g>
+          <g fill="var(--ax-x)"><circle cx="58" cy="28" r="2.5"/><circle cx="141" cy="77" r="2.5"/><circle cx="19" cy="111" r="2.5"/></g>
+        </svg>
+        <figcaption><span class="label">Exploration</span>Space science</figcaption>
       </figure>
     </div>
   </section>
@@ -678,24 +821,29 @@ h2::before {color:#b8a5ff;}
         <span class="title">MXR Scholarship</span>
         <span class="note">Published</span>
       </li>
-      <li>
-        <span class="label"><svg class="flag" viewBox="0 0 12 6" aria-hidden="true" focusable="false"><path fill="#00843d" d="M0 0h12v2H0z"/><path fill="#fff" d="M0 2h12v2H0z"/><path fill="#000" d="M0 4h12v2H0z"/><path fill="#ef3340" d="M0 0h3v6H0z"/></svg> NYU, UAE</span>
-        <span class="title">Digital Humanities Winter School 2024 — Computing Culture<span class="desc">Studied exploratory data analysis (EDA), natural language processing (NLP), computer vision, convolutional neural networks (CNNs) and image analysis.</span></span>
-        <span class="note">Fully funded</span>
-      </li>
-      <li>
+      
+      
+      
+    </ul>
+
+    <h3 class="group">Summer Schools</h3>
+<ul class="ledger"><li>
         <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#009246" d="M0 0h10v20H0z"/><path fill="#fff" d="M10 0h10v20H10z"/><path fill="#ce2b37" d="M20 0h10v20H20z"/></svg> IMT Lucca, Italy</span>
-        <span class="title"><a href="https://medium.com/@akumar49139/during-the-game-design-summer-school-at-imt-lucca-i-had-an-enriching-experience-that-broadened-my-356c083938d9" target="_blank" rel="noopener noreferrer">Game Design Summer School — IMT Lucca ↗</a><span class="desc">Studied game design and development at IMT School for Advanced Studies Lucca, Italy, collaborating with an international cohort of students and professionals.</span><span class="chips"><span>Game design</span><span>Game development</span><span>International collaboration</span></span></span>
+        <span class="title"><a href="https://www.imtlucca.it/summer-school-game-design-meets-game-theory-prototyping-circular-economies" target="_blank" rel="noopener noreferrer">Game Design Summer School — IMT Lucca ↗</a><span class="desc">IMT School for Advanced Studies Lucca, Italy. The programme combines game design and game theory through project-based workshops, game jams and rapid prototyping, with a focus on circular economy and sustainability.</span><span class="chips"><span>Game design</span><span>Game theory</span><span>Game jams</span><span>Prototyping</span><span>International collaboration</span></span></span>
         <span class="note">DAAD-funded</span>
       </li>
-      <li>
+<li>
         <span class="label"><svg class="flag" viewBox="0 0 8 5" aria-hidden="true" focusable="false"><path fill="#fff" d="M0 0h8v5H0z"/><path fill="#dc143c" d="M0 2.5h8V5H0z"/></svg> ISAGA, Poland</span>
         <span class="title">ISAGA Summer School<span class="desc">Participation fee waived through a NAWA grant (Polish National Agency for Academic Exchange) secured by the organizer.</span></span>
         <span class="note">Fee waived</span>
-      </li>
-    </ul>
-
-    <h3 class="group">Demos</h3>
+      </li></ul>
+<h3 class="group">Winter Schools</h3>
+<ul class="ledger"><li>
+        <span class="label"><svg class="flag" viewBox="0 0 12 6" aria-hidden="true" focusable="false"><path fill="#00843d" d="M0 0h12v2H0z"/><path fill="#fff" d="M0 2h12v2H0z"/><path fill="#000" d="M0 4h12v2H0z"/><path fill="#ef3340" d="M0 0h3v6H0z"/></svg> NYU, UAE</span>
+        <span class="title">Digital Humanities Winter School 2024 — Computing Culture<span class="desc">Studied exploratory data analysis (EDA), natural language processing (NLP), computer vision, convolutional neural networks (CNNs) and image analysis.</span></span>
+        <span class="note">Fully funded</span>
+      </li></ul>
+<h3 class="group">Demos</h3>
     <ul class="ledger"><li><span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#000" d="M0 0h30v7H0z"/><path fill="#d00" d="M0 7h30v6H0z"/><path fill="#ffce00" d="M0 13h30v7H0z"/></svg> Bochum, Germany</span><span class="title"><a href="https://vrs.ruhr-uni-bochum.de/programme-2026/" target="_blank" rel="noopener noreferrer">VR Summit 2026 — MedCareSnap ↗</a><span class="desc">Listed in the official VR Demos programme as Ashish Kumar, Independent Researcher.</span></span><span class="note">Accepted demo<br>12–13 October 2026</span></li></ul>
     <h3 class="group">Papers</h3>
     <ul class="ledger">
@@ -718,6 +866,15 @@ h2::before {color:#b8a5ff;}
         <span class="label"><svg class="flag" viewBox="0 0 30 20" aria-hidden="true" focusable="false"><path fill="#4891d9" d="M0 0h30v6.666666666666667H0z"/><path fill="#000" d="M0 6.666666666666667h30v6.666666666666667H0z"/><path fill="#fff" d="M0 13.333333333333334h30v6.666666666666667H0z"/></svg> XRM 2026, Estonia</span>
         <span class="title">Augmenting Ideation<span class="desc">A Mixed Reality Framework for Dynamic Mind Mapping and Content Generation. Extended abstract.</span></span>
         <span class="note">Accepted</span>
+      </li>
+    </ul>
+
+    <h3 class="group">National-Level Examination</h3>
+    <ul class="ledger">
+      <li>
+        <span class="label">India · 2022</span>
+        <span class="title">COGJET — Cognitive Science Joint Entrance Test</span>
+        <span class="note">Score: 19/40</span>
       </li>
     </ul>
 
