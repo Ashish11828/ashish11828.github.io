@@ -651,10 +651,81 @@ body{background-color:#f6f5ef;background-image:radial-gradient(ellipse at 100% 0
 @media(max-width:760px){.anime-landscape::after{background:linear-gradient(90deg,#fffaf3b8,#fffaf3d9 50%,#fffaf3b8);}.anime-world{opacity:.19!important;}.hero-text{margin-left:0;padding:16px;}.sakura-petals i{opacity:.55;}}
 @media(prefers-reduced-motion:reduce){.anime-landscape::before{animation:none;}}
 </style>
+<style id="anime-polish">
+/* A quieter reading surface within the animated sakura scenery. */
+:root{--accent:#8b476a;--muted:#53616b;--line:#c8d5d3;}
+.wrap{max-width:1160px;padding-top:24px;}
+.nav{padding:9px 12px;gap:4px;background:#fffdf6e8;border-color:#d0dbd8;box-shadow:0 8px 30px #416c7410;backdrop-filter:blur(18px);}
+.nav a{letter-spacing:.09em;transition:background .2s,color .2s,transform .2s;}
+.nav a:hover{background:#e5eee9;color:#305c52;transform:translateY(-1px);}
+.hero{gap:48px;padding-bottom:48px;}
+.hero-text{padding:28px 26px;margin-left:0;border-radius:24px;background:linear-gradient(135deg,#fffdf7ef,#fffaf3cf);border:1px solid #ffffffd9;box-shadow:0 16px 50px #57758110;}
+.hero-text h1{color:#304f4b;text-shadow:2px 3px 0 #e9ccd5;}
+.roles{color:#945a76;line-height:1.4;}
+.lede{color:#4e6068;line-height:1.85;}
+.education-summary{border-color:#a6bfc2;color:#5d7279;}
+.hero-actions a{box-shadow:0 5px 16px #345e5010!important;transition:transform .2s,box-shadow .2s;}
+.hero-actions a:first-child{background:#426f62;color:#fffdf6;border-color:#426f62;}
+.hero-actions a:hover{transform:translateY(-3px);box-shadow:0 9px 20px #345e5020!important;}
+.stage{background:radial-gradient(circle,#e8c7d633,#c5dfdf22 45%,transparent 70%);}
+.section-head{margin-bottom:24px;}.section-head h2{font-size:clamp(1.5rem,3vw,1.85rem);letter-spacing:-.035em;}
+.section-head::after{background:linear-gradient(90deg,#9abbb480,transparent);}
+.focus-grid{gap:18px;}
+.focus,.focus:nth-child(n){border:1px solid #bfcfcd;background:#fffdf5de;box-shadow:0 5px 20px #5276810b;border-radius:20px;transition:transform .25s,box-shadow .25s,border-color .25s;}
+.focus:nth-child(3n+1){background:linear-gradient(145deg,#eff7efed,#fffdf5e0);}
+.focus:nth-child(3n+2){background:linear-gradient(145deg,#edf5fbed,#fffdf5e0);}
+.focus:nth-child(3n){background:linear-gradient(145deg,#f9edf3ed,#fffdf5e0);}
+.focus:hover{transform:translateY(-5px);border-color:#83aaa1;box-shadow:0 12px 28px #5276811a;}
+.focus figcaption{color:#365650;gap:5px;}.focus figcaption .label{color:#718a87;letter-spacing:.12em;}
+#experience .ledger{gap:18px;}#experience .ledger li,#experience .ledger li:nth-child(even){background:#fffdf6e8;border:1px solid #c3d3d0;border-radius:18px;box-shadow:0 5px 24px #5276810a;padding:26px;}
+#experience .ledger li::before{width:3px;top:25px;bottom:25px;background:#b5829d;left:-1px;}
+#experience .ledger li:nth-child(even)::before{background:#81aa9c;}
+.ledger .title{color:#344a4b;}.ledger .title .desc{color:#5a686e;line-height:1.8;}
+.ledger .note{color:#4f7b70;}.group{color:#9a647e;letter-spacing:.14em;}
+.chips{gap:7px;}.chips span{background:#eef3f1;border-color:#cddbd6;color:#566e70;padding:4px 9px;border-radius:7px;}
+.links a{padding:21px 14px;border-radius:12px;transition:background .2s;}.links a:hover{background:#fffdf7c9;}.links .url{color:#3b5556;}.links .go{color:#769c8c;}
+footer{padding-top:24px;color:#738680;}
+@media(max-width:760px){.wrap{padding-inline:18px;}.hero{gap:24px;}.hero-text{padding:22px 20px;}.hero-text h1{font-size:clamp(3.25rem,13vw,5rem);}.nav{margin-bottom:28px;}.focus-grid{gap:12px;}.focus{padding:14px;}#experience .ledger li{padding:22px;}.links a{padding-inline:4px;}h2{white-space:normal;}.section-head::after{min-width:20px;}}
+@media(prefers-reduced-motion:reduce){.focus,.nav a,.hero-actions a,.links a{transition:none!important;transform:none!important;}}
+</style>
+<style id="cinematic-atmosphere">
+/* Lightweight animated scenery, with no video download required. */
+.anime-landscape{background:linear-gradient(150deg,#dce8ec,#f5e9e4 58%,#e7ecdf);}
+.anime-landscape>svg{opacity:.65;filter:saturate(.85);animation:cinema-pan 40s ease-in-out infinite alternate;transform-origin:65% 65%;}
+.anime-landscape::before{inset:-20%;background:radial-gradient(ellipse at 10% 30%,#d8b6ce66,transparent 40%),radial-gradient(ellipse at 85% 22%,#a8d1e166,transparent 40%),radial-gradient(ellipse at 70% 90%,#e5cbaa40,transparent 45%);animation:cinema-light 24s ease-in-out infinite alternate;}
+.anime-landscape::after{background:linear-gradient(90deg,#f8f7f09c,#f8f7f0e0 26%,#f8f7f0ed 52%,#f8f7f0ce 76%,#f8f7f065);}
+.cinema-clouds{position:absolute;inset:-15%;z-index:1;opacity:.45;background:radial-gradient(ellipse 24% 5% at 12% 26%,#fffefa,transparent 80%),radial-gradient(ellipse 30% 7% at 65% 16%,#fffefa,transparent 80%),radial-gradient(ellipse 27% 6% at 91% 44%,#fffefa,transparent 80%);animation:cinema-clouds 55s ease-in-out infinite alternate;}
+.cinema-rays{position:absolute;inset:-20%;z-index:1;opacity:.25;background:conic-gradient(from 150deg at 83% 5%,transparent 0deg,#fff6d6 8deg,transparent 16deg,#fff6d680 24deg,transparent 32deg);filter:blur(20px);animation:cinema-rays 22s ease-in-out infinite alternate;}
+.sakura-petals i{opacity:.48;width:9px;height:14px;animation-duration:calc(25s + var(--i)*2s);background:linear-gradient(135deg,#eac5d5,#bc88a2);}
+.sakura-petals i:nth-child(2n){filter:blur(1px);opacity:.3;}.sakura-petals i:nth-child(3n){width:6px;height:10px;}
+.anime-world{opacity:.16!important;}.anime-world svg{filter:none;}.bg-robot{animation-duration:14s;}.bg-xr,.bg-smart{animation-duration:20s;}.bg-ai,.bg-ml{animation-duration:18s;}
+.hero-text{background:linear-gradient(135deg,#fffdf7ed,#fffdf5c9);border-color:#ffffffc9;box-shadow:0 18px 55px #465e6f0c;backdrop-filter:blur(12px);}
+.nav{background:#fffdf6e0;}.focus,#experience .ledger li{backdrop-filter:blur(14px);}
+.motion-control{position:fixed;right:18px;bottom:18px;z-index:10;border:1px solid #b8cbc4;background:#fffdf4ed;color:#47655e;box-shadow:0 4px 18px #385a6512;padding:9px 13px;border-radius:24px;font:11px var(--font-body);cursor:pointer;backdrop-filter:blur(12px);}.motion-control:hover{background:#eaf2ed;}.motion-control:focus-visible{outline:2px solid #537b70;outline-offset:4px;}
+body.motion-paused .anime-landscape *,body.motion-paused .anime-landscape::before,body.motion-paused .anime-world *{animation-play-state:paused!important;}
+@keyframes cinema-pan{from{transform:scale(1.03) translate(-.5%,0);}to{transform:scale(1.1) translate(1%,-1%);}}
+@keyframes cinema-light{to{transform:translate(3%,-2%);opacity:.6;}}
+@keyframes cinema-clouds{to{transform:translateX(9%);}}
+@keyframes cinema-rays{to{transform:rotate(-6deg);opacity:.12;}}
+@media(min-width:1351px){.anime-world{opacity:.30!important;}}
+@media(max-width:760px){.anime-landscape::after{background:#f8f7f0d9;}.anime-world{opacity:.1!important;}.cinema-rays{display:none;}.sakura-petals i:nth-child(even){display:none;}.motion-control{bottom:12px;right:12px;padding:8px 11px;}.hero-text{background:#fffdf5dc;}}
+@media(prefers-reduced-motion:reduce){.anime-landscape *, .anime-landscape::before{animation:none!important;}.motion-control{display:none;}}
+</style><style id="typography-refinement">
+body{font-size:16px;line-height:1.65;}
+h1,.hero-text h1{font-size:clamp(3rem,6.2vw,4.75rem);line-height:1.06;letter-spacing:-.045em;}
+.roles{font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.45;}.lede{font-size:16px;line-height:1.8;}
+.eyebrow{font-size:11px;line-height:1.7;letter-spacing:.13em;}.education-summary{font-size:14px;line-height:1.8;}
+.nav a{font-size:11px;line-height:1.5;}.section-head h2{font-size:clamp(1.5rem,2.4vw,1.8rem);line-height:1.3;}
+.ledger .title{font-size:20px;line-height:1.45;}.ledger .title .desc{font-size:15px;line-height:1.75;}
+.ledger .label,.group{font-size:11px;line-height:1.75;}.ledger .note{font-size:12px;line-height:1.75;}
+.chips span{font-size:11px;line-height:1.5;}.focus figcaption{font-size:18px;line-height:1.4;}.focus figcaption .label{font-size:10px;}
+.links .label{font-size:11px;}.links .url{font-size:14px;line-height:1.65;}.links.writing .url{font-size:19px;line-height:1.45;}.hero-actions a{font-size:14px;}
+@media(max-width:760px){h1,.hero-text h1{font-size:clamp(2.65rem,11.5vw,3.75rem);line-height:1.08;}.roles{font-size:19px;}.lede{font-size:15px;line-height:1.8;}.education-summary{font-size:13px;}.nav a{font-size:10px;padding:8px;}.ledger .title{font-size:18px;}.ledger .title .desc{font-size:14px;}.ledger .note{font-size:12px;}.focus figcaption{font-size:16px;}.links .url{font-size:13px;}.links.writing .url{font-size:17px;}.hero-text{gap:18px;}.eyebrow{font-size:10px;letter-spacing:.1em;}}
+</style>
 </head>
 <body>
 
-<div class="anime-landscape" aria-hidden="true">
+<div class="anime-landscape" aria-hidden="true"><div class="cinema-clouds"></div><div class="cinema-rays"></div>
  <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
   <defs><linearGradient id="anime-sky" x2="0" y2="1"><stop stop-color="#dcecf2"/><stop offset=".55" stop-color="#f9e8e6"/><stop offset="1" stop-color="#f5d5b4"/></linearGradient><linearGradient id="anime-mountain" x2="0" y2="1"><stop stop-color="#9faec2"/><stop offset="1" stop-color="#bec8cb"/></linearGradient></defs>
   <path fill="url(#anime-sky)" d="M0 0h1600v1000H0z"/>
@@ -765,10 +836,9 @@ body{background-color:#f6f5ef;background-image:radial-gradient(ellipse at 100% 0
   </header>
 
   <section id="focus" aria-labelledby="foc">
-    <div class="section-head">
-      <h2 id="foc">Focus areas</h2>
-    </div>
-    <div class="focus-grid">
+    <div class="section-head"><h2 id="foc">Focus &amp; Interests</h2></div>
+    <h3 class="group" id="primary-focus-heading">Focus</h3>
+    <div class="focus-grid" role="group" aria-labelledby="primary-focus-heading">
       <figure class="focus">
         <canvas data-kind="glasses" role="img" aria-label="Animated smart glasses with a scanning line in one lens"></canvas>
         <figcaption><span class="label">XR</span>Smart glasses</figcaption>
@@ -782,10 +852,6 @@ body{background-color:#f6f5ef;background-image:radial-gradient(ellipse at 100% 0
         <figcaption><span class="label">Learning</span>Machine learning</figcaption>
       </figure>
       <figure class="focus">
-        <canvas data-kind="robot" role="img" aria-label="Animated robot arm reaching for a moving target"></canvas>
-        <figcaption><span class="label">Machines</span>Robotics</figcaption>
-      </figure>
-      <figure class="focus">
         <svg class="focus-art quantum-focus" viewBox="0 0 160 160" role="img" aria-label="Animated quantum computing with a qubit and three orbital paths">
           <g fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="80" cy="80" rx="61" ry="23"/><ellipse cx="80" cy="80" rx="61" ry="23" transform="rotate(60 80 80)"/><ellipse cx="80" cy="80" rx="61" ry="23" transform="rotate(120 80 80)"/></g>
           <circle cx="80" cy="80" r="9" fill="currentColor"/><circle cx="141" cy="80" r="5" fill="var(--ax-y)"/><circle cx="49" cy="27" r="5" fill="var(--ax-x)"/>
@@ -793,11 +859,8 @@ body{background-color:#f6f5ef;background-image:radial-gradient(ellipse at 100% 0
         <figcaption><span class="label">Qubits</span>Quantum computing</figcaption>
       </figure>
       <figure class="focus">
-        <svg class="focus-art safety-focus" viewBox="0 0 160 160" role="img" aria-label="Animated AI safety shield with a check mark and connected model nodes">
-          <g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M80 20 127 38v39q0 39-47 64-47-25-47-64V38z"/><path d="m57 79 16 16 31-34" stroke="var(--ax-y)" stroke-width="6"/><path d="M19 43 33 51m94 0 14-8M18 111l24-13m76 0 24 13"/></g>
-          <g fill="var(--ax-y)"><circle cx="16" cy="41" r="5"/><circle cx="144" cy="41" r="5"/><circle cx="15" cy="113" r="5"/><circle cx="145" cy="113" r="5"/></g>
-        </svg>
-        <figcaption><span class="label">Trust &amp; reliability</span>AI safety</figcaption>
+        <canvas data-kind="robot" role="img" aria-label="Animated robot arm reaching for a moving target"></canvas>
+        <figcaption><span class="label">Machines</span>Robotics</figcaption>
       </figure>
       <figure class="focus">
         <svg class="focus-art space-focus" viewBox="0 0 160 160" role="img" aria-label="Animated space science with a ringed planet, stars and a spacecraft">
@@ -810,6 +873,30 @@ body{background-color:#f6f5ef;background-image:radial-gradient(ellipse at 100% 0
           <g fill="var(--ax-x)"><circle cx="58" cy="28" r="2.5"/><circle cx="141" cy="77" r="2.5"/><circle cx="19" cy="111" r="2.5"/></g>
         </svg>
         <figcaption><span class="label">Exploration</span>Space science</figcaption>
+      </figure>
+    </div>
+    <h3 class="group" id="research-interests-heading">Interests</h3>
+    <div class="focus-grid" role="group" aria-labelledby="research-interests-heading">
+      <figure class="focus">
+        <svg class="focus-art safety-focus" viewBox="0 0 160 160" role="img" aria-label="Animated AI safety shield with a check mark and connected model nodes">
+          <g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M80 20 127 38v39q0 39-47 64-47-25-47-64V38z"/><path d="m57 79 16 16 31-34" stroke="var(--ax-y)" stroke-width="6"/><path d="M19 43 33 51m94 0 14-8M18 111l24-13m76 0 24 13"/></g>
+          <g fill="var(--ax-y)"><circle cx="16" cy="41" r="5"/><circle cx="144" cy="41" r="5"/><circle cx="15" cy="113" r="5"/><circle cx="145" cy="113" r="5"/></g>
+        </svg>
+        <figcaption><span class="label">Trust &amp; reliability</span>AI safety</figcaption>
+      </figure>
+      <figure class="focus">
+        <svg class="focus-art safety-focus" viewBox="0 0 160 160" role="img" aria-label="Animated brain illustration for brain science">
+          <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M80 30c-12-15-31-7-33 7-18-1-28 14-23 29-17 12-12 34 2 40-1 19 16 28 30 23 5 15 24 15 24 1V30Zm0 0c12-15 31-7 33 7 18-1 28 14 23 29 17 12 12 34-2 40 1 19-16 28-30 23-5 15-24 15-24 1V30Z"/>
+            <path d="M47 37q-3 18 15 21M24 66q18-8 25 7m-23 33q22 2 24-18m6 41q-6-20 9-27M113 37q3 18-15 21m38 8q-18-8-25 7m23 33q-22 2-24-18m-6 41q6-20-9-27"/>
+          </g>
+          <g fill="var(--ax-y)"><circle cx="61" cy="58" r="4"/><circle cx="49" cy="87" r="4"/><circle cx="99" cy="58" r="4"/><circle cx="111" cy="87" r="4"/></g>
+        </svg>
+        <figcaption><span class="label">Mind &amp; cognition</span>Brain Science</figcaption>
+      </figure>
+      <figure class="focus">
+        <canvas data-kind="ai" role="img" aria-label="Animated neural network for neurocomputing"></canvas>
+        <figcaption><span class="label">Neural computation</span>Neurocomputing</figcaption>
       </figure>
     </div>
   </section>
@@ -1129,7 +1216,14 @@ body{background-color:#f6f5ef;background-image:radial-gradient(ellipse at 100% 0
       <li>
         <a href="https://www.deep-ml.com/profile/oaJG47vYJNPTBQ6SBtm8KH2v66a2" target="_blank" rel="noopener noreferrer">
           <span class="label">Deep-ML</span>
-          <span class="url">Machine learning practice, 11 problems solved</span>
+          <span class="url">Machine learning practice · <span id="deepml-solved-count">11 problems solved</span></span>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.kaggle.com/ashishkumarvaid544" target="_blank" rel="noopener noreferrer">
+          <span class="label">Kaggle</span>
+          <span class="url">kaggle.com/ashishkumarvaid544</span>
           <span class="go" aria-hidden="true">↗</span>
         </a>
       </li>
@@ -1540,5 +1634,8 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
  document.querySelectorAll('.anime-world svg').forEach(function(svg) { if(svg.pauseAnimations) svg.pauseAnimations(); });
 }
 </script>
-</body>
+<button class="motion-control" type="button" aria-pressed="false" aria-label="Pause background animation">Pause scenery</button>
+<script>
+(function(){var b=document.querySelector('.motion-control');b.addEventListener('click',function(){var paused=document.body.classList.toggle('motion-paused');b.setAttribute('aria-pressed',String(paused));b.setAttribute('aria-label',paused?'Play background animation':'Pause background animation');b.textContent=paused?'Play scenery':'Pause scenery';document.querySelectorAll('.anime-world svg').forEach(function(s){if(paused&&s.pauseAnimations)s.pauseAnimations();else if(!paused&&s.unpauseAnimations)s.unpauseAnimations();});});})();
+</script></body>
 </html>
