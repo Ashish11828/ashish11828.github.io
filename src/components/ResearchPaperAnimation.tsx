@@ -116,13 +116,14 @@ export const ResearchPaperAnimation: React.FC<ResearchPaperAnimationProps> = ({
               transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut' }}
             />
           </motion.g>
-          {/* Auto-metadata tag lines */}
+          {/* Capture metadata tag and synchronization state */}
           <motion.g
             animate={paused ? { opacity: 0.8 } : { opacity: [0.45, 1, 0.45] }}
             transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
           >
             <rect x="28" y="28" width="44" height="3.5" rx="1.75" fill="rgba(148, 224, 255, 0.78)" />
             <rect x="28" y="35" width="30" height="3" rx="1.5" fill="rgba(255, 198, 215, 0.65)" />
+            <text x="28" y="48" fill="#EAF5FF" fontSize="5.5" fontFamily="monospace">AUTO-TAG · SYNC</text>
           </motion.g>
         </svg>
       )}
@@ -165,7 +166,7 @@ export const ResearchPaperAnimation: React.FC<ResearchPaperAnimationProps> = ({
           />
           <path d="M120 48 V65" stroke="#B7F7DC" strokeWidth="1" />
 
-          {/* Coupled multi-modal nodes: XR, AI, IoT */}
+          {/* Coupled XR, AI, and IoT subsystems feed an energy-aware control core */}
           {[
             { cx: 64, cy: 36, label: 'XR', color: '#FFA3BC' },
             { cx: 176, cy: 36, label: 'AI', color: '#9BD7FF' },
@@ -205,9 +206,9 @@ export const ResearchPaperAnimation: React.FC<ResearchPaperAnimationProps> = ({
               </text>
             </g>
           ))}
-          {/* Downward carbon-reduction curve */}
+          {/* Directional energy trend cue, without implying a measured result */}
           <motion.path
-            d="M28 66 Q48 70 62 82 T92 92"
+            d="M28 92 Q48 86 62 75 T92 68"
             stroke="#7AE7BC"
             strokeWidth="1.5"
             strokeLinecap="round"
@@ -217,10 +218,10 @@ export const ResearchPaperAnimation: React.FC<ResearchPaperAnimationProps> = ({
         </svg>
       )}
 
-      {/* 3. ICMLAI 2026: Neural-Sensing Smart Glasses for Human-AI Collaboration */}
+      {/* 3. ICMLAI 2026: Neural-sensing input paired with smart-glasses context */}
       {paperId === 'icmlai-2026' && (
         <svg viewBox="0 0 240 112" className="relative z-10 h-full w-full" fill="none">
-          {/* Flowing EEG / neural waveform behind glasses */}
+          {/* Abstract neural-sensing signal; no specific sensor modality is implied */}
           <motion.path
             d="M14 56 Q28 32 42 56 T70 56 T98 56 T126 56 T154 56 T182 56 T210 56 T228 56"
             stroke="rgba(255, 163, 188, 0.72)"
@@ -264,7 +265,7 @@ export const ResearchPaperAnimation: React.FC<ResearchPaperAnimationProps> = ({
             strokeWidth="1.6"
             strokeLinecap="round"
           />
-          {/* Right lens augmented-intelligence focus ring */}
+          {/* Glasses surface contextual AI guidance while the neural signal is monitored */}
           <motion.circle
             cx="158"
             cy="54"
@@ -286,18 +287,23 @@ export const ResearchPaperAnimation: React.FC<ResearchPaperAnimationProps> = ({
             animate={paused ? { scale: 1 } : { scale: [0.8, 1.35, 0.8], opacity: [0.55, 1, 0.55] }}
             transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
           />
+          <g fill="#DDEBFF" fontFamily="monospace" fontSize="6.5" opacity="0.86">
+            <text x="143" y="49">CONTEXT</text>
+            <text x="143" y="64">ASSIST</text>
+          </g>
+          <path d="M145 53h24M145 68h17" stroke="#9BD7FF" strokeWidth="1" strokeLinecap="round" opacity="0.8" />
         </svg>
       )}
 
       {/* 4. XRM 2026: Augmenting Ideation — Dynamic MR Mind Mapping & Content Generation */}
       {paperId === 'xrm-2026' && (
         <svg viewBox="0 0 240 112" className="relative z-10 h-full w-full" fill="none">
-          {/* Dynamic spatial branches radiating from central ideation core */}
+          {/* Spatial mind map: one source idea branches into editable/generated media */}
           {[
-            { x2: 52, y2: 30, color: '#FFA3BC', delay: 0 },
-            { x2: 186, y2: 28, color: '#9BD7FF', delay: 0.35 },
-            { x2: 46, y2: 84, color: '#FFE09E', delay: 0.7 },
-            { x2: 192, y2: 82, color: '#99E6C4', delay: 1.05 },
+            { x2: 52, y2: 30, label: 'MAP', color: '#FFA3BC', delay: 0 },
+            { x2: 186, y2: 28, label: 'TEXT', color: '#9BD7FF', delay: 0.35 },
+            { x2: 46, y2: 84, label: 'IDEA', color: '#FFE09E', delay: 0.7 },
+            { x2: 192, y2: 82, label: 'MEDIA', color: '#99E6C4', delay: 1.05 },
           ].map((branch, idx) => (
             <g key={idx}>
               <motion.path
@@ -324,25 +330,17 @@ export const ResearchPaperAnimation: React.FC<ResearchPaperAnimationProps> = ({
                   stroke={branch.color}
                   strokeWidth="1.2"
                 />
-                <line
-                  x1={branch.x2 - 7}
-                  y1={branch.y2 - 2}
-                  x2={branch.x2 + 7}
-                  y2={branch.y2 - 2}
-                  stroke={branch.color}
-                  strokeOpacity="0.85"
-                  strokeWidth="1.2"
-                  strokeLinecap="round"
-                />
-                <line
-                  x1={branch.x2 - 7}
-                  y1={branch.y2 + 3}
-                  x2={branch.x2 + 3}
-                  y2={branch.y2 + 3}
-                  stroke="rgba(255,255,255,0.55)"
-                  strokeWidth="1.1"
-                  strokeLinecap="round"
-                />
+                <text
+                  x={branch.x2}
+                  y={branch.y2 + 2.5}
+                  textAnchor="middle"
+                  fill="#EEF4FF"
+                  fontSize="5.5"
+                  fontFamily="monospace"
+                  fontWeight="700"
+                >
+                  {branch.label}
+                </text>
               </motion.g>
             </g>
           ))}
@@ -362,41 +360,49 @@ export const ResearchPaperAnimation: React.FC<ResearchPaperAnimationProps> = ({
         </svg>
       )}
 
-      {/* 5. VR Summit 2026: MedCareSnap — Live Spatial AR Cardiac Response Demo */}
+      {/* 5. VR Summit 2026: hands-free CPR pacing and spatial AED guidance demo */}
       {paperId === 'vr-summit-2026' && (
         <svg viewBox="0 0 240 112" className="relative z-10 h-full w-full" fill="none">
-          {/* Live ECG cardiac waveform trace */}
+          {/* Torso and hand-placement target communicate CPR guidance, not ECG monitoring */}
+          <path
+            d="M42 30 Q58 22 74 30 L84 43 L78 52 L72 46 L72 88 H44 V46 L38 52 L32 43 Z"
+            fill="rgba(255, 142, 168, 0.12)"
+            stroke="rgba(255, 190, 205, 0.74)"
+            strokeWidth="1.2"
+            strokeLinejoin="round"
+          />
+          <path d="M47 48h22M47 53h22" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" />
           <motion.path
-            d="M16 62 H56 L66 42 L74 78 L84 30 L92 68 L100 62 H142"
+            d="M58 51v19m-5-5 5 5 5-5"
             stroke="#FF8EA8"
             strokeWidth="1.8"
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeDasharray="160"
-            animate={paused ? { strokeDashoffset: 0 } : { strokeDashoffset: [160, 0] }}
-            transition={{ duration: 2.1, repeat: Infinity, ease: 'easeInOut' }}
+            animate={paused ? { y: 0 } : { y: [0, 3, 0] }}
+            transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut' }}
           />
-          {/* Hands-free CPR rhythm pacing rings */}
+          <text x="58" y="98" textAnchor="middle" fill="#FFDDE5" fontSize="6" fontFamily="monospace">CPR PACE</text>
+          {/* Pacing pulse and directional AED navigation */}
           <motion.circle
-            cx="182"
+            cx="132"
             cy="56"
-            r="16"
+            r="12"
             stroke="rgba(122, 231, 188, 0.85)"
             strokeWidth="1.4"
-            style={{ originX: '182px', originY: '56px' }}
+            style={{ originX: '132px', originY: '56px' }}
             animate={paused ? { scale: 1, opacity: 0.7 } : { scale: [0.85, 1.45], opacity: [0.9, 0] }}
             transition={{ duration: 1.1, repeat: Infinity, ease: 'easeOut' }}
           />
           <circle
-            cx="182"
+            cx="132"
             cy="56"
-            r="15"
+            r="11"
             fill="rgba(13, 21, 42, 0.82)"
             stroke="#7AE7BC"
             strokeWidth="1.3"
           />
           <text
-            x="182"
+            x="132"
             y="59"
             textAnchor="middle"
             fill="#E8FFF5"
@@ -404,11 +410,11 @@ export const ResearchPaperAnimation: React.FC<ResearchPaperAnimationProps> = ({
             fontFamily="monospace"
             fontWeight="700"
           >
-            AED
+            PACE
           </text>
-          {/* Directional spatial guidance chevron */}
+          {/* Directional spatial guidance chevron toward the AED marker */}
           <motion.path
-            d="M148 50 L156 56 L148 62"
+            d="M158 50 L166 56 L158 62"
             stroke="#9BD7FF"
             strokeWidth="1.6"
             strokeLinecap="round"
@@ -416,6 +422,9 @@ export const ResearchPaperAnimation: React.FC<ResearchPaperAnimationProps> = ({
             animate={paused ? { x: 0 } : { x: [-2, 4, -2], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
           />
+          <rect x="178" y="37" width="40" height="38" rx="8" fill="rgba(13, 21, 42, 0.86)" stroke="#9BD7FF" strokeWidth="1.1" />
+          <path d="M198 44v20m-7-7 7 7 7-7" stroke="#9BD7FF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <text x="198" y="71" textAnchor="middle" fill="#E8F4FF" fontSize="6" fontFamily="monospace">AED</text>
         </svg>
       )}
     </div>
