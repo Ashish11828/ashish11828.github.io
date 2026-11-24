@@ -1,6 +1,0 @@
-{
-  "profiles": [
-    { "id": "deepml", "url": "https://www.deep-ml.com/profile/oaJG47vYJNPTBQ6SBtm8KH2v66a2", "elementId": "deepml-solved-count" },
-    { "id": "deepagnt", "url": null, "elementId": "deepagnt-solved-count" }
-  ]
-}

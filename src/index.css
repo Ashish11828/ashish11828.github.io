@@ -1,0 +1,216 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background-color: rgba(200, 62, 77, 0.24);
+    color: inherit;
+  }
+}
+
+/* Smooth cinematic anime camera Ken Burns pan & zoom motions (compositor-only) */
+@keyframes kenburns-pan-right {
+  0% {
+    transform: scale(1.04) translate3d(-1.5%, -0.5%, 0);
+  }
+  100% {
+    transform: scale(1.13) translate3d(1.8%, 0.8%, 0);
+  }
+}
+
+@keyframes kenburns-pan-left {
+  0% {
+    transform: scale(1.12) translate3d(1.6%, -0.6%, 0);
+  }
+  100% {
+    transform: scale(1.04) translate3d(-1.4%, 0.9%, 0);
+  }
+}
+
+@keyframes kenburns-zoom-in {
+  0% {
+    transform: scale(1.03) translate3d(0%, 1%, 0);
+  }
+  100% {
+    transform: scale(1.12) translate3d(-1%, -1%, 0);
+  }
+}
+
+@keyframes kenburns-drift-up {
+  0% {
+    transform: scale(1.11) translate3d(-1.2%, 1%, 0);
+  }
+  100% {
+    transform: scale(1.04) translate3d(1.2%, -0.8%, 0);
+  }
+}
+
+.anime-kenburns-1 {
+  will-change: transform;
+  animation: kenburns-pan-right 14s ease-in-out infinite alternate;
+}
+
+.anime-kenburns-2 {
+  will-change: transform;
+  animation: kenburns-pan-left 14s ease-in-out infinite alternate;
+}
+
+.anime-kenburns-3 {
+  will-change: transform;
+  animation: kenburns-zoom-in 14s ease-in-out infinite alternate;
+}
+
+.anime-kenburns-4 {
+  will-change: transform;
+  animation: kenburns-drift-up 14s ease-in-out infinite alternate;
+}
+
+/* Synchronized anime scene progress bar (compositor-only scaleX) */
+@keyframes scene-progress-fill {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.scene-progress-bar {
+  transform-origin: left center;
+  will-change: transform;
+  animation: scene-progress-fill 7.5s linear forwards;
+}
+
+/* Subtle editorial marquee ribbon */
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  will-change: transform;
+  animation: marquee-scroll 42s linear infinite;
+}
+
+/* Weightless floating symbol animations (compositor-only translate3d) */
+@keyframes symbol-float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  45% {
+    transform: translate3d(0, -4px, 0) rotate(-1.2deg);
+  }
+  75% {
+    transform: translate3d(0, 1.5px, 0) rotate(0.8deg);
+  }
+}
+
+@keyframes symbol-float-micro {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -3px, 0);
+  }
+}
+
+.symbol-float {
+  will-change: transform;
+  animation: symbol-float var(--float-duration, 4.2s) ease-in-out var(--float-delay, 0s) infinite;
+}
+
+.symbol-float-micro {
+  will-change: transform;
+  animation: symbol-float-micro var(--float-duration, 3.8s) ease-in-out var(--float-delay, 0s) infinite;
+}
+
+.symbol-float-0 {
+  --float-duration: 3.8s;
+  --float-delay: -0.3s;
+}
+
+.symbol-float-1 {
+  --float-duration: 4.4s;
+  --float-delay: -1.4s;
+}
+
+.symbol-float-2 {
+  --float-duration: 4.9s;
+  --float-delay: -2.6s;
+}
+
+.symbol-float-3 {
+  --float-duration: 5.3s;
+  --float-delay: -3.5s;
+}
+
+.symbol-float:hover,
+.symbol-float-micro:hover {
+  animation-play-state: paused;
+}
+
+.motion-paused .marquee-track,
+.motion-paused .scene-progress-bar,
+.motion-paused .anime-kenburns-1,
+.motion-paused .anime-kenburns-2,
+.motion-paused .anime-kenburns-3,
+.motion-paused .anime-kenburns-4,
+.motion-paused .symbol-float,
+.motion-paused .symbol-float-micro {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track,
+  .scene-progress-bar,
+  .anime-kenburns-1,
+  .anime-kenburns-2,
+  .anime-kenburns-3,
+  .anime-kenburns-4,
+  .symbol-float,
+  .symbol-float-micro {
+    animation: none !important;
+  }
+}
+
+.section-defer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .symbol-float,
+  .symbol-float-micro {
+    animation: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Ashish Kumar — Anime Edition Portfolio",
+  "description": "A Makoto Shinkai and Studio Ghibli–inspired anime portfolio for Ashish Kumar, Software Engineer and Independent Researcher specializing in Extended Reality, Human-Centered AI, and Quantum Computing.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
