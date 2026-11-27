@@ -2282,9 +2282,9 @@ export interface ExtraUiTranslations {
 export const EXTRA_UI_BY_LANG: Record<LanguageCode, ExtraUiTranslations> = {
   en: {
     cvSubtitle:
-      'Software Engineer & Independent Researcher · Spatial Computing & Smart-Glasses XR · Human-Centered AI · Applied Quantum ML',
+      'XR / Spatial Computing Engineer & Researcher · Smart Glasses · Human-Centered AI',
     openToLabel: 'Open to',
-    openToText: 'XR / Spatial Computing Engineer, Research Engineer & PhD roles — Europe, Japan & Remote',
+    openToText: 'XR / Spatial Computing Engineer & Research Engineer — Europe, Japan & Remote',
     copyBibtex: 'Copy BibTeX',
     bibtexCopied: 'BibTeX Copied',
     rolePresets: [
@@ -2312,9 +2312,9 @@ export const EXTRA_UI_BY_LANG: Record<LanguageCode, ExtraUiTranslations> = {
   },
   'en-US': {
     cvSubtitle:
-      'Software Engineer & Independent Researcher · Spatial Computing & Smart-Glasses XR · Human-Centered AI · Applied Quantum ML',
+      'XR / Spatial Computing Engineer & Researcher · Smart Glasses · Human-Centered AI',
     openToLabel: 'Open to',
-    openToText: 'XR / Spatial Computing Engineer, Research Engineer & PhD roles — Europe, Japan & Remote',
+    openToText: 'XR / Spatial Computing Engineer & Research Engineer — Europe, Japan & Remote',
     copyBibtex: 'Copy BibTeX',
     bibtexCopied: 'BibTeX Copied',
     rolePresets: [
