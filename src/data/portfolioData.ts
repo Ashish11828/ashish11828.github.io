@@ -928,6 +928,12 @@ export const PROFILE_LINKS: ProfileLink[] = [
     icon: 'linkedin',
   },
   {
+    label: 'Wantedly',
+    detail: 'wantedly.com/id/ashish_kumar_i',
+    href: 'https://www.wantedly.com/id/ashish_kumar_i',
+    icon: 'wantedly',
+  },
+  {
     label: 'Google Scholar',
     detail: 'Publications & citations',
     href: 'https://share.google/NXxM2sSHaWVdn83kw',

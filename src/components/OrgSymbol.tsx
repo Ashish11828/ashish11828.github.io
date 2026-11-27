@@ -193,6 +193,7 @@ export type DomainSymbolKey =
   | 'email'
   | 'github'
   | 'linkedin'
+  | 'wantedly'
   | 'scholar'
   | 'codechef'
   | 'deepml'
@@ -265,6 +266,12 @@ export const DomainSymbol: React.FC<{ kind: DomainSymbolKey; className?: string 
         return (
           <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
             <path d="M4.98 3.5a2.48 2.48 0 1 0 0 4.96 2.48 2.48 0 0 0 0-4.96ZM3 9h4v12H3V9Zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94V21h-4V9Z" />
+          </svg>
+        );
+      case 'wantedly':
+        return (
+          <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+            <path d="M2.4 6.1c1.05 0 1.78.63 2.1 1.77l1.34 4.7 1.55-5.02c.35-1.12.99-1.67 1.94-1.67s1.6.55 1.95 1.67l1.55 5.02 1.34-4.7c.32-1.14 1.05-1.77 2.1-1.77 1.19 0 1.93.83 1.93 1.88 0 .37-.08.77-.23 1.22l-2.4 7.1c-.44 1.3-1.25 1.96-2.4 1.96-1.12 0-1.88-.63-2.28-1.85l-1.56-4.67-1.56 4.67c-.4 1.22-1.16 1.85-2.28 1.85-1.15 0-1.96-.66-2.4-1.96l-2.4-7.1c-.15-.45-.23-.85-.23-1.22 0-1.05.74-1.88 1.93-1.88Z" />
           </svg>
         );
       case 'kaggle':
