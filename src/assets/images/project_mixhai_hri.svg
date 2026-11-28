@@ -17,16 +17,6 @@
     </pattern>
     <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="13"/></filter>
   </defs>
-  <style>
-    .float{animation:float 5s ease-in-out infinite}.float2{animation:float 6.4s ease-in-out -2s infinite}
-    .orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s linear infinite}
-    .scan{animation:scan 4.8s ease-in-out infinite}.pulse{animation:pulse 2.8s ease-in-out infinite}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
-    @keyframes orbit{to{transform:rotate(360deg)}}
-    @keyframes scan{0%,100%{transform:translateY(0);opacity:.22}50%{transform:translateY(290px);opacity:.85}}
-    @keyframes pulse{0%,100%{opacity:.38;transform:scale(.96)}50%{opacity:1;transform:scale(1.04)}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
-  </style>
   <rect width="1200" height="900" rx="34" fill="url(#bg)"/>
   <rect width="1200" height="900" rx="34" fill="url(#glow)"/>
   <rect width="1200" height="900" rx="34" fill="url(#grid)"/>

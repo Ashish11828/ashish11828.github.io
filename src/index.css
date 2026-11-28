@@ -81,39 +81,6 @@
   animation: kenburns-drift-up 14s ease-in-out infinite alternate;
 }
 
-/* Subtle, staggered anime camera drift across the project artwork gallery. */
-@keyframes project-art-drift-1 {
-  0%, 100% { translate: -0.6% 0; scale: 1.04; }
-  50% { translate: 0.6% -0.3%; scale: 1.08; }
-}
-
-@keyframes project-art-drift-2 {
-  0%, 100% { translate: 0.6% -0.3%; scale: 1.08; }
-  50% { translate: -0.6% 0.3%; scale: 1.04; }
-}
-
-@keyframes project-art-drift-3 {
-  0%, 100% { translate: 0 -0.5%; scale: 1.05; }
-  50% { translate: 0.5% 0.3%; scale: 1.09; }
-}
-
-@keyframes project-art-drift-4 {
-  0%, 100% { translate: 0.4% 0.3%; scale: 1.09; }
-  50% { translate: -0.5% -0.3%; scale: 1.05; }
-}
-
-.project-art-1,
-.project-art-2,
-.project-art-3,
-.project-art-4 {
-  will-change: transform, translate, scale;
-}
-
-.project-art-1 { animation: project-art-drift-1 18s ease-in-out infinite; }
-.project-art-2 { animation: project-art-drift-2 20s ease-in-out -6s infinite; }
-.project-art-3 { animation: project-art-drift-3 19s ease-in-out -11s infinite; }
-.project-art-4 { animation: project-art-drift-4 21s ease-in-out -3s infinite; }
-
 /* Synchronized anime scene progress bar (compositor-only scaleX) */
 @keyframes scene-progress-fill {
   0% {
@@ -208,10 +175,6 @@
 .motion-paused .anime-kenburns-2,
 .motion-paused .anime-kenburns-3,
 .motion-paused .anime-kenburns-4,
-.motion-paused .project-art-1,
-.motion-paused .project-art-2,
-.motion-paused .project-art-3,
-.motion-paused .project-art-4,
 .motion-paused .symbol-float,
 .motion-paused .symbol-float-micro {
   animation-play-state: paused;
@@ -228,10 +191,6 @@
   .anime-kenburns-2,
   .anime-kenburns-3,
   .anime-kenburns-4,
-  .project-art-1,
-  .project-art-2,
-  .project-art-3,
-  .project-art-4,
   .symbol-float,
   .symbol-float-micro {
     animation: none !important;
