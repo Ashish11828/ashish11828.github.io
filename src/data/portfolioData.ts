@@ -176,6 +176,26 @@ export const PROJECTS: ProjectItem[] = [
     ],
   },
   {
+    id: 'mixhai-xr',
+    title: 'MixHAI-XR HRI Sensor Lab',
+    subtitle: 'Simulation-first workbench for collaborative human–robot interaction',
+    category: 'xr',
+    categoryLabel: 'WebXR · HRI · Smart Glasses Vision',
+    symbols: [{ alt: 'Human Robot Interaction symbol', iconKey: 'robotics' }],
+    venue: 'Interactive research prototype · 2026',
+    year: '2026',
+    summary:
+      'An interactive XR workbench for exploring collaborative-robot handover, force-guidance, proximity-safety, and gaze-intent scenarios across AR, mixed-reality, and VR modes. It brings simulated sensor and vision feedback, a reinforcement-learning agent, experiment logging, and telemetry into one research interface.',
+    contribution:
+      'Built the TypeScript and Three.js workbench with XRBlocks, scenario controls, smart-glasses vision overlays, a simulated object-detection path, and experiment and telemetry views.',
+    outcome:
+      'A simulation-oriented research prototype. The repository enables a simulator override for object detection and does not document validation with a physical robot or study participants.',
+    stack: ['TypeScript', 'Three.js', 'XRBlocks', 'WebXR', 'MediaPipe', 'Human–Robot Interaction', 'Reinforcement Learning'],
+    links: [
+      { label: 'GitHub Repository', href: 'https://github.com/Ashish11828/mixi_paper', primary: true },
+    ],
+  },
+  {
     id: 'roboxr-ai',
     title: 'RoboXR AI',
     subtitle: 'XR-first robot teaching & ISO 10218 safety guardrails',
