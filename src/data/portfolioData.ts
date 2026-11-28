@@ -354,6 +354,25 @@ export const PROJECTS: ProjectItem[] = [
     ],
   },
   {
+    id: 'llm-chatbot-services',
+    title: 'LLM Chatbot Services',
+    subtitle: 'Local-first conversational AI integration prototype',
+    category: 'ai',
+    categoryLabel: 'Generative AI · Local LLMs',
+    symbols: [{ alt: 'Generative AI project symbol' }],
+    year: '2025–2026',
+    summary:
+      'An experimental chatbot stack that connects local Ollama inference with Perplexica and weather-service adapters through a Python Flask API and an ASP.NET Core web interface.',
+    contribution:
+      'Built a multi-service integration prototype spanning prompt routing, local model calls, service adapters, and a .NET 8 web interface.',
+    outcome:
+      'The repository contains backend and interface modules, while a reproducible dependency manifest and complete startup procedure remain unfinished. No verified build is claimed.',
+    stack: ['Python', 'Flask', 'Ollama', 'Perplexica', 'ASP.NET Core', '.NET 8'],
+    links: [
+      { label: 'GitHub Repository', href: 'https://github.com/Ashish11828/LLM--CHATBOT', primary: true },
+    ],
+  },
+  {
     id: 'ml-from-scratch',
     title: 'Machine Learning from Scratch',
     subtitle: 'First-principles implementations & interactive progress portfolio',
