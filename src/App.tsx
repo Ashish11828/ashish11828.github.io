@@ -905,9 +905,10 @@ export default function App() {
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredProjects.map((rawProject) => {
+            {filteredProjects.map((rawProject, projectIndex) => {
               const project = getLocalizedProject(rawProject, language);
               const isHeroTile = projectFilter === 'all' && project.featured;
+              const projectArtMotionClass = `project-art-${(projectIndex % 4) + 1}`;
 
               if (isHeroTile && project.image) {
                 return (
@@ -926,7 +927,7 @@ export default function App() {
                           alt={project.imageAlt ?? project.title}
                           title={project.title}
                           className="h-full w-full"
-                          imgClassName="transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                          imgClassName={`transition-transform duration-500 ease-out group-hover:scale-[1.04] ${projectArtMotionClass}`}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#070B14]/94 via-[#070B14]/45 to-transparent" />
                         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 text-white">
@@ -995,7 +996,7 @@ export default function App() {
                           alt={project.imageAlt ?? project.title}
                           title={project.title}
                           className="aspect-[4/3] w-full"
-                          imgClassName="transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+                          imgClassName={`transition-transform duration-500 ease-out group-hover:scale-[1.05] ${projectArtMotionClass}`}
                         />
                         <div
                           aria-hidden="true"
