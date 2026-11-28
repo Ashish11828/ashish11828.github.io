@@ -84,6 +84,7 @@ export const ProjectLightbox: React.FC<ProjectLightboxProps> = ({
             title={project.title}
             priority
             className="aspect-[16/9] w-full border-b border-[#E6DFD5] dark:border-[#263047]"
+            imgClassName={project.id === 'mixhai-xr' ? '' : 'project-art-1'}
           />
         )}
 
