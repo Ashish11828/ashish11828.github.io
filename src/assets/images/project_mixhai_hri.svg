@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="60" x2="1128" y2="856" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102D3B"/><stop offset=".55" stop-color="#15223B"/><stop offset="1" stop-color="#241B3F"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="760" y1="230" x2="1100" y2="690" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#73F0D0" stop-opacity=".24"/><stop offset="1" stop-color="#8CA7FF" stop-opacity=".08"/>
+    </linearGradient>
+    <linearGradient id="arm" x1="210" y1="280" x2="665" y2="700" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#82F2D2"/><stop offset="1" stop-color="#5B8CFF"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 400 -520 0 604 453)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#49DFC0" stop-opacity=".16"/><stop offset="1" stop-color="#49DFC0" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0v42" stroke="#A5D7E8" stroke-opacity=".09"/>
+    </pattern>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="13"/></filter>
+  </defs>
+  <style>
+    .float{animation:float 5s ease-in-out infinite}.float2{animation:float 6.4s ease-in-out -2s infinite}
+    .orbit{transform-box:fill-box;transform-origin:center;animation:orbit 16s linear infinite}
+    .scan{animation:scan 4.8s ease-in-out infinite}.pulse{animation:pulse 2.8s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+    @keyframes orbit{to{transform:rotate(360deg)}}
+    @keyframes scan{0%,100%{transform:translateY(0);opacity:.22}50%{transform:translateY(290px);opacity:.85}}
+    @keyframes pulse{0%,100%{opacity:.38;transform:scale(.96)}50%{opacity:1;transform:scale(1.04)}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}}
+  </style>
+  <rect width="1200" height="900" rx="34" fill="url(#bg)"/>
+  <rect width="1200" height="900" rx="34" fill="url(#glow)"/>
+  <rect width="1200" height="900" rx="34" fill="url(#grid)"/>
+  <path d="M0 708c211-84 405-87 603-26 204 62 386 60 597-43v261H0V708Z" fill="#081927" fill-opacity=".76"/>
+  <path d="M0 719c211-84 405-87 603-26 204 62 386 60 597-43" stroke="#55E3C5" stroke-opacity=".28" stroke-width="2"/>
+
+  <!-- Collaborative robot arm -->
+  <ellipse cx="398" cy="725" rx="248" ry="38" fill="#060F1C" fill-opacity=".58"/>
+  <path d="M235 697h323l-30 40H268l-33-40Z" fill="#233B50" stroke="#74E9D0" stroke-opacity=".65" stroke-width="3"/>
+  <path d="m288 690 47-89 121-26 75 64-42 64H323l-35-13Z" fill="#1E3348" stroke="url(#arm)" stroke-width="12" stroke-linejoin="round"/>
+  <path d="m346 602 6-185 99-46 77 37 1 192-73 43-110-41Z" fill="#21394D" stroke="url(#arm)" stroke-width="14" stroke-linejoin="round"/>
+  <path d="m401 422 12-164 104-37 63 58-42 150-94 38-43-45Z" fill="#263C52" stroke="#8DEED8" stroke-width="13" stroke-linejoin="round"/>
+  <circle cx="401" cy="606" r="32" fill="#102537" stroke="#85F1D4" stroke-width="10"/>
+  <circle cx="492" cy="416" r="31" fill="#13263A" stroke="#85F1D4" stroke-width="10"/>
+  <circle cx="510" cy="258" r="24" fill="#13263A" stroke="#85F1D4" stroke-width="9"/>
+  <path d="m561 279 80 36 42-20 30 22-46 43-110-23-28-33 32-25Z" fill="#67DCC7" stroke="#BCFFF0" stroke-width="5" stroke-linejoin="round"/>
+  <path d="m691 318 26-5 25 23-22 28-30-9 1-37Z" fill="#B5FFF0"/>
+  <path d="m343 452 37-8m-25 26 40-8m87-23 31-13m-30 32 31-13" stroke="#A5F7E4" stroke-opacity=".78" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Human profile with smart glasses -->
+  <path d="M876 699c-7-79 6-122 38-155 18-19 27-35 28-62 1-24 13-44 33-56 5-53 49-83 103-69 32 8 54 31 57 65 4 45-17 71-45 87-13 8-17 22-12 37l18 52c9 27 2 46-24 57l-34 15v29H876Z" fill="#D9A9A7" stroke="#FFD2C5" stroke-opacity=".8" stroke-width="4"/>
+  <path d="M936 467c15-64 57-104 110-106 42-2 69 19 85 49-28-18-55-20-79-6-20 12-32 34-31 61l-5 31-25 17-23-5-5-24-27-1Z" fill="#17243A"/>
+  <path d="m1031 497 67-8 7 34-70 8-4-34Z" fill="#59E0CF" fill-opacity=".62" stroke="#B9FFF2" stroke-width="5"/>
+  <path d="m1098 505 42-10 7 22-41 9" stroke="#B9FFF2" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="1066" cy="512" r="5" fill="#F8FFFC"/>
+  <path d="M1012 557c8 8 17 8 26 1" stroke="#653F4C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M917 696c12-56 48-91 104-103 27-6 53-1 78 15l26 88H917Z" fill="#394F73" stroke="#8AA9E9" stroke-width="4"/>
+  <path d="m958 642 61 24 58-21" stroke="#A4C7FF" stroke-opacity=".6" stroke-width="4"/>
+
+  <!-- Spatial interaction zone and sensing rays -->
+  <ellipse class="orbit" cx="768" cy="493" rx="151" ry="230" stroke="#6AEBD0" stroke-opacity=".48" stroke-width="3" stroke-dasharray="10 15"/>
+  <ellipse cx="768" cy="493" rx="110" ry="169" stroke="#9CB7FF" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M697 329 807 359M719 478l91 21m-99 87 97-3m-169-74 228-40" stroke="#6AEBD0" stroke-opacity=".28" stroke-width="2" stroke-dasharray="7 9"/>
+  <circle class="pulse" cx="744" cy="456" r="18" fill="#74F1D2" fill-opacity=".88"/>
+  <circle cx="744" cy="456" r="39" stroke="#74F1D2" stroke-opacity=".36" stroke-width="3"/>
+  <circle cx="812" cy="565" r="8" fill="#FF9CC6"/><circle cx="699" cy="565" r="7" fill="#92AFFF"/>
+  <path class="scan" d="M628 405h278" stroke="#D5FFF7" stroke-width="3" stroke-linecap="round" filter="url(#soft)"/>
+  <path class="scan" d="M628 405h278" stroke="#D5FFF7" stroke-opacity=".8" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Floating telemetry panels -->
+  <g class="float">
+    <rect x="73" y="96" width="248" height="130" rx="18" fill="#10283A" fill-opacity=".9" stroke="#6AEBD0" stroke-opacity=".56" stroke-width="2"/>
+    <circle cx="101" cy="126" r="7" fill="#70F0D1"/><path d="M121 126h118" stroke="#B9D4DF" stroke-opacity=".7" stroke-width="5" stroke-linecap="round"/>
+    <path d="m98 188 28-25 23 12 28-36 26 21 31-34 25 18 33-38" stroke="#75EBD1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M99 202h190" stroke="#9EB5C7" stroke-opacity=".22" stroke-width="2"/>
+  </g>
+  <g class="float2">
+    <rect x="866" y="100" width="250" height="116" rx="18" fill="url(#glass)" stroke="#9AB4FF" stroke-opacity=".62" stroke-width="2"/>
+    <circle cx="901" cy="139" r="17" stroke="#A3B8FF" stroke-width="5"/><path d="m893 139 6 6 11-14" stroke="#E8EDFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M933 132h145m-145 16h101m-177 46h182" stroke="#C1D7EA" stroke-opacity=".62" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g class="float">
+    <rect x="73" y="313" width="176" height="102" rx="17" fill="#12283A" fill-opacity=".88" stroke="#8EA8FF" stroke-opacity=".5" stroke-width="2"/>
+    <path d="M97 380c14-35 29-14 43-39 12-22 26 10 39-4 13-14 20-26 43-21" stroke="#A5B7FF" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="98" cy="344" r="5" fill="#FF9CC6"/><circle cx="222" cy="316" r="5" fill="#73EBD2"/>
+  </g>
+  <g class="float2">
+    <rect x="854" y="756" width="262" height="80" rx="17" fill="#12283A" fill-opacity=".9" stroke="#6AEBD0" stroke-opacity=".46" stroke-width="2"/>
+    <circle cx="886" cy="796" r="10" fill="#70F0D1"/><path d="M913 782h164m-164 27h111" stroke="#C3D7E6" stroke-opacity=".52" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g fill="#D7FFF6" fill-opacity=".72"><circle cx="373" cy="145" r="3"/><circle cx="646" cy="128" r="4"/><circle cx="797" cy="259" r="3"/><circle cx="574" cy="757" r="3"/><circle cx="1141" cy="370" r="4"/><circle cx="289" cy="510" r="3"/></g>
+</svg>

@@ -182,6 +182,8 @@ export const PROJECTS: ProjectItem[] = [
     category: 'xr',
     categoryLabel: 'WebXR · HRI · Smart Glasses Vision',
     symbols: [{ alt: 'Human Robot Interaction symbol', iconKey: 'robotics' }],
+    image: '/src/assets/images/project_mixhai_hri.svg',
+    imageAlt: 'Animated research illustration of a collaborative robot and smart-glasses wearer sharing a spatial sensing zone with live telemetry panels',
     venue: 'Interactive research prototype · 2026',
     year: '2026',
     summary:
